@@ -84,9 +84,10 @@ end
 
 endmodule
 
-module TimerIC(mode,BoardSelect) ;
+module TimerIC(clk,mode,BoardSelect) ;
 
 output reg [1:0] mode,BoardSelect ;
+reg [5:0] TClock ;
 
 initial 
 begin
@@ -94,6 +95,10 @@ begin
 	BoardSelect = 0 ;
 end
 
+always @(posedge clk) 
+begin 
+	
+end
 endmodule
 
 module LightBoard(enable,mode,mode_out) ;
@@ -103,3 +108,4 @@ input enable ;
 input [1:0] mode ;
 
 endmodule
+

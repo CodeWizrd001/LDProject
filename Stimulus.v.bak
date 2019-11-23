@@ -1,0 +1,9 @@
+module StimTraffic ;
+
+reg [1023:0] Sample [180:0] ;
+
+initial
+begin
+
+end
+endmodule 
