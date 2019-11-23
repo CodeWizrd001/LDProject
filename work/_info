@@ -9,13 +9,13 @@ z2
 cModel Technology
 dD:/Files/ModelSim/AJAY_B180341CS_AIV/New folder
 vDecoder
-Z0 !s110 1573837295
+Z0 !s110 1574503953
 !i10b 1
 !s100 9MQ9=hmKk]ZBOb48EiR_A0
 I3X:26McQ4I=Ao`AI1ndWL1
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dD:/Files/ModelSim/Project
-Z3 w1573837291
+Z3 w1574503947
 Z4 8D:/Files/ModelSim/Project/Modules.v
 Z5 FD:/Files/ModelSim/Project/Modules.v
 L0 48
@@ -23,7 +23,7 @@ Z6 OV;L;10.6d;65
 r1
 !s85 0
 31
-Z7 !s108 1573837295.000000
+Z7 !s108 1574503953.000000
 Z8 !s107 D:/Files/ModelSim/Project/Modules.v|
 Z9 !s90 -reportprogress|300|-work|work|-stats=none|D:/Files/ModelSim/Project/Modules.v|
 !i113 1
@@ -75,14 +75,14 @@ R11
 vLightBoard
 R0
 !i10b 1
-!s100 HaLgUJ^L39IOL48aF2zbi3
-Iij6nOB>]AK1fc]IG0oMQj0
+!s100 PiM@hhPzRDYnH>cMkBZZl0
+IHnAMm<nKlEXld0I9@FKzb2
 R1
 R2
 R3
 R4
 R5
-L0 99
+L0 109
 R6
 r1
 !s85 0
@@ -161,13 +161,13 @@ R10
 R11
 n@p@encoder
 vStimTraffic
-!s110 1574447613
+R0
 !i10b 1
-!s100 KU_BIoL4=ed7S<9=I1_e;2
-I?[<g4lme1Sai`I@T>BN7G1
+!s100 ZVELf^?^FJ>D=lgP=cKb^0
+I@IPTBiJ]eh8];oa0NEFcL2
 R1
 R2
-w1574447611
+w1574497273
 R14
 R15
 L0 1
@@ -175,7 +175,7 @@ R6
 r1
 !s85 0
 31
-!s108 1574447613.000000
+R7
 Z17 !s107 D:/Files/ModelSim/Project/Stimulus.v|
 R16
 !i113 1
@@ -185,8 +185,8 @@ n@stim@traffic
 vTimerIC
 R0
 !i10b 1
-!s100 A:^UK:VKnNaDKK8TIOk[70
-ICz<RWzgE3zn0S>7GX=KQ[1
+!s100 `OBjaVcOD1PBP<XzXH]C?2
+I;M?YmEWi5In2=aEf6Y=le0
 R1
 R2
 R3
@@ -204,3 +204,47 @@ R9
 R10
 R11
 n@timer@i@c
+vTrafficSignal
+R0
+!i10b 1
+!s100 f7I=oC>e4NRh8Q4h:nKQP3
+Ik_2K>^GM;^QCNcEiI?;N11
+R1
+R2
+R3
+R4
+R5
+L0 117
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@traffic@signal
+vTrafficSystem
+R0
+!i10b 1
+!s100 b`EjN<aco1d6O?90BlT??2
+Iz2cVLc=K6a;4X3IDhHZWB3
+R1
+R2
+R3
+R4
+R5
+L0 123
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@traffic@system

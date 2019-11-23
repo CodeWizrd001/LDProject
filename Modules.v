@@ -87,6 +87,7 @@ endmodule
 module TimerIC(clk,mode,BoardSelect) ;
 
 output reg [1:0] mode,BoardSelect ;
+input clk ;
 reg [5:0] TClock ;
 
 initial 
@@ -97,7 +98,11 @@ end
 
 always @(posedge clk) 
 begin 
-	
+	TClock = TClock + 1 ;
+	if(TClock%16==15)
+		mode =~ mode ;
+	if(TClock%32==31)
+		BoardSelect = BoardSelect + 1 ;
 end
 endmodule
 
@@ -109,3 +114,33 @@ input [1:0] mode ;
 
 endmodule
 
+module TrafficSignal(clk) ;
+
+input clk ;
+
+endmodule 
+
+module TrafficSystem(clk) ;
+
+input clk ;
+integer Fin ;
+integer Fin_ ;
+integer i ;
+
+reg [1023:0] Sample [260:0] ;
+
+initial 
+begin 
+	Fin = $fopen("Samples/pixelArrayInputFile.txt","r") ;
+	if (Fin==0)
+	begin
+    		$display("data_file handle was NULL");
+    		$finish;
+	end
+	for(i=0;i<260;i=i+1)
+	begin 
+		Fin_ = $fscanf(Fin,"%b",Sample[i]) ;
+	end
+end
+
+endmodule 

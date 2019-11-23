@@ -30,7 +30,7 @@ def toString(l) :
     return ''.join(str(j) for j in l)
 
 def WriteToFile() :
-    pixelArrayFile = open("pixelArrayFile.txt","w")
+    pixelArrayFile = open("pixelArrayInputFile.txt","w")
     for i in pixelArray :
-        pixelArrayFile.write("Sample["+str(pixelArray.index(i))+"] = 1024'b"+toString(i)+" ;\n")
+        pixelArrayFile.write(toString(i)+"\n")
     pixelArrayFile.close()

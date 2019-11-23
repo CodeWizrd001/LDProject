@@ -1,1 +1,8 @@
+D:/Files/ModelSim/Project/Stimulus.v {1 {vlog -work work -stats=none D:/Files/ModelSim/Project/Stimulus.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module StimTraffic
 
+Top level modules:
+	StimTraffic
+
+} {} {}}
