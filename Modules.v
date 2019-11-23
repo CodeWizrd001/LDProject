@@ -120,17 +120,27 @@ input clk ;
 
 endmodule 
 
-module TrafficSystem(clk) ;
+module TrafficSystem(clk,imgData,ans) ;
 
 input clk ;
+input [1023:0] imgData ;
+
 integer Fin ;
 integer Fin_ ;
 integer i ;
+integer j ;
+integer max ;
+integer maxi ;
 
+output reg [5:0] ans ;
+
+reg [11:0] similar [260:0] ;
 reg [1023:0] Sample [260:0] ;
 
 initial 
 begin 
+	for(i=0;i<260;i=i+1)
+		similar[i] = 0 ;
 	Fin = $fopen("Samples/pixelArrayInputFile.txt","r") ;
 	if (Fin==0)
 	begin
@@ -143,4 +153,22 @@ begin
 	end
 end
 
+always@(imgData)
+begin
+	for(i=0;i<260;i=i+1)
+		for(j=0;j<1024;j=j+1)
+		begin
+			if(Sample[i][j] == imgData[j])
+				similar[i] = similar[i] + 1 ;
+		end
+	max = 0 ;
+	maxi = 0 ;
+	for(i=0;i<260;i=i+1)
+		if(similar[i]>max)
+		begin 
+			max = similar[i] ;
+			maxi = i ;
+		end
+	ans = maxi/10 + 1 ;
+end
 endmodule 

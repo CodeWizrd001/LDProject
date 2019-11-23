@@ -7518,3 +7518,221 @@ run
 #         257 0000011111111111111111111110000000000111111111111111111111110000000001111111111111111111111100000000000000000000000000111110000000000000000000000000001111100000000000000000000000000011111000000000000000000000000011111100000000000000000000000000111100000000000000000000000000011111000000000000000000000000011111100000000000000000000000000111110000000000000000000000000011111100000000000000000000000001111100000000000000000000000000011111000000000000000000000000011111100000000000000000000000000111111000000000000000000000000011111000000000000000000000000000111110000000000000000000000000011111000000000000000000000000011111100000000000000000000000000111111000000000000000000000000011111000000000000000000000000000111100000000000000000000000000011111000000000000000000000000011111100000000000000000000000000111100000000000000000000000000001111010000000000000000000000000111111111111111111111111000000001111111111111111111111110000000001111111111111111111111100000000000000000000000000000000000000000000000000000000000000000000
 #         258 0000000000000000000000000000000001111111111111111111111000000000011111111111111111111111000000000111111111111111111111110000000000000000000000000011111000000000000000000000000000111110000000000000000000000000001111100000000000000000000000001111110000000000000000000000000011110000000000000000000000000001111100000000000000000000000001111110000000000000000000000000011111000000000000000000000000001111110000000000000000000000000111110000000000000000000000000001111100000000000000000000000001111110000000000000000000000000011111100000000000000000000000001111100000000000000000000000000011111000000000000000000000000001111100000000000000000000000001111110000000000000000000000000011111100000000000000000000000001111100000000000000000000000000011110000000000000000000000000001111100000000000000000000000001111110000000000000000000000000011110000000000000000000000000000111100000000000000000000000000011111111111111111111111100000000111111111111111111111111000000000111111111111111111111110000000000000000000000000000000000000000
 #         259 0000000000000000000000000000000000000000000000000000000000000000000000111111111111111111111100000000001111111111111111111111100000000011111111111111111111111000000000000000000000000001111100000000000000000000000000011111000000000000000000000000000111110000000000000000000000000111111000000000000000000000000001111100000000000000000000000000111110000000000000000000000000111111000000000000000000000000001111100000000000000000000000000111111000000000000000000000000011111000000000000000000000000000111110000000000000000000000000111111000000000000000000000000001111110000000000000000000000000111110000000000000000000000000001111100000000000000000000000000111110000000000000000000000000111111000000000000000000000000001111110000000000000000000000000111110000000000000000000000000001111000000000000000000000000000111110000000000000000000000000111111000000000000000000000000001111000000000000000000000000000011110000000000000000000000000001111111111111111111111110000000011111111111111111111111100000000011111111111111111111111000
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.TrafficSystem
+# End time: 15:52:48 on Nov 23,2019, Elapsed time: 0:10:08
+# Errors: 0, Warnings: 0
+# vsim -gui work.TrafficSystem 
+# Start time: 15:52:49 on Nov 23,2019
+# Loading work.TrafficSystem
+run
+# hello
+# Compile of Modules.v failed with 1 errors.
+# Compile of Modules.v was successful.
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v failed with 2 errors.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of Stimulus.v failed with 2 errors.
+# Compile of Stimulus.v failed with 1 errors.
+# Compile of Stimulus.v failed with 1 errors.
+# Compile of Stimulus.v failed with 1 errors.
+# Compile of Stimulus.v was successful.
+vsim -gui work.StimTraffic
+# End time: 16:12:25 on Nov 23,2019, Elapsed time: 0:19:36
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 16:12:25 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+run
+# Break key hit
+# Break in Module StimTraffic at D:/Files/ModelSim/Project/Stimulus.v line 16
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v failed with 1 errors.
+# 2 compiles, 1 failed with 1 error.
+# Load canceled
+# Compile of Stimulus.v was successful.
+vsim -gui work.StimTraffic
+# End time: 16:13:12 on Nov 23,2019, Elapsed time: 0:00:47
+# Errors: 1, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 16:13:12 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+run
+run
+# Compile of Stimulus.v was successful.
+# Load canceled
+# Compile of Stimulus.v was successful.
+vsim -gui work.StimTraffic
+# End time: 16:17:20 on Nov 23,2019, Elapsed time: 0:04:08
+# Errors: 1, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 16:17:20 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+run
+add wave -position insertpoint sim:/StimTraffic/a/*
+restart -f
+run
+vsim -gui work.StimTraffic
+# End time: 16:20:00 on Nov 23,2019, Elapsed time: 0:02:40
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 16:20:00 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+run
+run
+add wave -position insertpoint sim:/StimTraffic/a/*
+restart -f
+run
+# Compile of Modules.v was successful.
+vsim -gui work.StimTraffic
+# End time: 16:21:16 on Nov 23,2019, Elapsed time: 0:01:16
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 16:21:16 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+run
+add wave -position insertpoint sim:/StimTraffic/a/*
+restart -f
+run
+# Compile of Stimulus.v failed with 1 errors.
+# Compile of Stimulus.v was successful.
+vsim -gui work.StimTraffic
+# End time: 18:07:52 on Nov 23,2019, Elapsed time: 1:46:36
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 18:07:53 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+run
+# (vsim-50) A call to system(python ProcessImage.py A_0) returned error code '1'.
+# The logfile contains the following messages:
+#   File "ProcessImage.py", line 10
+#     a[i] = int(sum(pixel_values[i])/3)
+#     ^
+# IndentationError: expected an indented block
+# 
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "A_0.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : D:/Files/ModelSim/Project/Stimulus.v(27)
+#    Time: 15 ps  Iteration: 0  Instance: /StimTraffic
+# ** Error (suppressible): (vsim-PLI-3084) D:/Files/ModelSim/Project/Stimulus.v(28): $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 15 ps  Iteration: 0  Instance: /StimTraffic
+restart -f
+add wave -position insertpoint sim:/StimTraffic/*
+run
+# (vsim-50) A call to system(python ProcessImage.py A_0) returned error code '1'.
+# The logfile contains the following messages:
+# Traceback (most recent call last):
+#   File "ProcessImage.py", line 5, in <module>
+#     im = Image.open(imname+'.jpg', 'r')
+# NameError: name 'Image' is not defined
+# 
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "A_0.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : D:/Files/ModelSim/Project/Stimulus.v(27)
+#    Time: 15 ps  Iteration: 0  Instance: /StimTraffic
+# ** Error (suppressible): (vsim-PLI-3084) D:/Files/ModelSim/Project/Stimulus.v(28): $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 15 ps  Iteration: 0  Instance: /StimTraffic
+# Compile of Stimulus.v was successful.
+vsim -gui work.StimTraffic
+# End time: 18:10:12 on Nov 23,2019, Elapsed time: 0:02:19
+# Errors: 1, Warnings: 1
+# vsim -gui work.StimTraffic 
+# Start time: 18:10:12 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+run
+# (vsim-50) A call to system(python ProcessImage.py A_1) returned error code '1'.
+# The logfile contains the following messages:
+# Traceback (most recent call last):
+#   File "ProcessImage.py", line 5, in <module>
+#     im = Image.open(imname+'.jpg', 'r')
+# NameError: name 'Image' is not defined
+# 
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "A_0.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : D:/Files/ModelSim/Project/Stimulus.v(27)
+#    Time: 15 ps  Iteration: 0  Instance: /StimTraffic
+# ** Error (suppressible): (vsim-PLI-3084) D:/Files/ModelSim/Project/Stimulus.v(28): $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 15 ps  Iteration: 0  Instance: /StimTraffic
+# Compile of Stimulus.v was successful.
+# Load canceled
+vsim -gui work.StimTraffic
+# End time: 18:12:18 on Nov 23,2019, Elapsed time: 0:02:06
+# Errors: 2, Warnings: 1
+# vsim -gui work.StimTraffic 
+# Start time: 18:12:18 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+# Compile of Stimulus.v failed with 1 errors.
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic
+# End time: 18:12:57 on Nov 23,2019, Elapsed time: 0:00:39
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 18:12:57 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+add wave -position insertpoint sim:/StimTraffic/a/*
+run
+# (vsim-50) A call to system(python ProcessImage.py A_1) returned error code '1'.
+# The logfile contains the following messages:
+# Traceback (most recent call last):
+#   File "ProcessImage.py", line 1, in <module>
+#     from PIL import Image
+# ImportError: No module named PIL
+# 
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "A_0.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : D:/Files/ModelSim/Project/Stimulus.v(28)
+#    Time: 20 ps  Iteration: 0  Instance: /StimTraffic
+# ** Error (suppressible): (vsim-PLI-3084) D:/Files/ModelSim/Project/Stimulus.v(29): $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 20 ps  Iteration: 0  Instance: /StimTraffic
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic
+# End time: 18:13:50 on Nov 23,2019, Elapsed time: 0:00:53
+# Errors: 1, Warnings: 1
+# vsim -gui work.StimTraffic 
+# Start time: 18:13:50 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+add wave -position insertpoint sim:/StimTraffic/a/*
+run
+# (vsim-50) A call to system(python3 ProcessImage.py A_1) returned error code '9009'.
+# The logfile contains the following messages:
+# Python was not found but can be installed from the Microsoft Store: https://go.microsoft.com/fwlink?linkID=2082640
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "A_0.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : D:/Files/ModelSim/Project/Stimulus.v(28)
+#    Time: 20 ps  Iteration: 0  Instance: /StimTraffic
+# ** Error (suppressible): (vsim-PLI-3084) D:/Files/ModelSim/Project/Stimulus.v(29): $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 20 ps  Iteration: 0  Instance: /StimTraffic
+# Compile of Stimulus.v was successful.
+vsim -gui work.StimTraffic
+# End time: 18:19:32 on Nov 23,2019, Elapsed time: 0:05:42
+# Errors: 1, Warnings: 1
+# vsim -gui work.StimTraffic 
+# Start time: 18:19:32 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+vsim -gui work.StimTraffic
+# End time: 18:20:11 on Nov 23,2019, Elapsed time: 0:00:39
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 18:20:11 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
