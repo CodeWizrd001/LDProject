@@ -9,21 +9,21 @@ z2
 cModel Technology
 dD:/Files/ModelSim/AJAY_B180341CS_AIV/New folder
 vDecoder
-Z0 !s110 1574600944
+Z0 !s110 1574622469
 !i10b 1
-!s100 `Y>[_W9b>>15ZjMH`Le^22
-I^ATL0=2N23BTENjhQ>U`Z3
+!s100 VKQNUWIDU?Hm=2bZc8CIm1
+IfoDEG2XXXAD610i=DV@^Q2
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dD:/Files/ModelSim/Project
-Z3 w1574600941
+Z3 w1574622457
 Z4 8D:/Files/ModelSim/Project/Modules.v
 Z5 FD:/Files/ModelSim/Project/Modules.v
-L0 57
+L0 59
 Z6 OV;L;10.6d;65
 r1
 !s85 0
 31
-Z7 !s108 1574600944.000000
+Z7 !s108 1574622469.000000
 Z8 !s107 D:/Files/ModelSim/Project/Modules.v|
 Z9 !s90 -reportprogress|300|-work|work|-stats=none|D:/Files/ModelSim/Project/Modules.v|
 !i113 1
@@ -75,14 +75,14 @@ R11
 vLightBoard
 R0
 !i10b 1
-!s100 JZBLOm=GGT^ChLDV5_PWY2
-I0M[V2SzV1zKEb:JDO4N1>3
+!s100 zzWg7CMYjTgVCkO3=maP^0
+I`?]^QmUdZ5klkR;co[i[T3
 R1
 R2
 R3
 R4
 R5
-L0 126
+L0 196
 R6
 r1
 !s85 0
@@ -141,8 +141,8 @@ n@or
 vPEncoder
 R0
 !i10b 1
-!s100 o91eb1DB5Se1`UH=egXm_2
-I4LOQIZSZLQOOkIQ;7dkcD1
+!s100 RG2SI3_EleEWMfTG=Jh[?0
+In`cz0Oh4dQ>fIL9Ng4LIV3
 R1
 R2
 R3
@@ -160,14 +160,35 @@ R9
 R10
 R11
 n@p@encoder
+vsegment7
+R0
+!i10b 1
+!s100 W5Lj]nJX?]RQc0F`=FHo53
+Ijehe24XVk2IzO6PWaccYK2
+R1
+R2
+R3
+R4
+R5
+L0 125
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
 vStimTraffic
 R0
 !i10b 1
-!s100 L<JeaF<m:lSaU^8SiSg@;2
-II1S4[Fa9:gz02Hz??SF8U0
+!s100 BE9P8i_=]Th[14M9[=9co0
+IM?ADj@iHVDZTo]63WThT90
 R1
 R2
-w1574597752
+w1574622286
 R14
 R15
 L0 1
@@ -185,14 +206,14 @@ n@stim@traffic
 vTimerIC
 R0
 !i10b 1
-!s100 iXeFS@lj=j;1RG[2h7lom0
-IL0e[idKH?enVNRC6g;blk3
+!s100 DTN]P6O:k>2JAQ><=nLkL1
+IT_fm[EH>7SmJMT504e7?>0
 R1
 R2
 R3
 R4
 R5
-L0 96
+L0 98
 R6
 r1
 !s85 0
@@ -207,14 +228,14 @@ n@timer@i@c
 vTrafficSignal
 R0
 !i10b 1
-!s100 @jm8B5i_8E<e229>7zZXZ2
-InV:NoO5J2UzT^@_2=_WL@0
+!s100 [:LAeOJ^PUB`5>E<e1ST11
+ISSj;6OUFU8PRW:g6IB`j83
 R1
 R2
 R3
 R4
 R5
-L0 157
+L0 227
 R6
 r1
 !s85 0
@@ -229,14 +250,14 @@ n@traffic@signal
 vTrafficSystem
 R0
 !i10b 1
-!s100 oiBCKQZEnTf__`Ud:ZU7g0
-I?3i2Z;b1YgAR27TMAkXnH3
+!s100 @WG;?Q:QXb6Eh18i943=N2
+IgA4OOBX9H7[[M6?j^:YZc1
 R1
 R2
 R3
 R4
 R5
-L0 205
+L0 290
 R6
 r1
 !s85 0

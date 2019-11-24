@@ -40,6 +40,8 @@ always @(in1,in2,in3,in4)
 begin
 	if({in1,in2,in3,in4} != 0) 
 		used = 1 ; 
+	else 
+		used = 0 ;
 	if (in1== 1)
 		out = 0 ;
 	else if(in2 == 1) 
@@ -104,11 +106,8 @@ reg [5:0] TClock ;
 initial 
 begin
 	TClock = 0 ;
-	mode = 0 ;
+	mode = 1 ;
 	BoardSelect = 0 ;
-	BoardSelect = 1 ;
-	BoardSelect = 2 ;
-	BoardSelect = 3 ;
 end
 
 always @(posedge clk) 
@@ -121,6 +120,77 @@ begin
 		mode =~ mode ;
 	TClock = TClock + 1 ;
 end
+endmodule
+
+module segment7(OUT, IN);
+
+output reg [13:0] OUT;
+input [3:0] IN;
+reg [3:0] temp;
+
+always@(IN)
+begin
+	if(IN<10)
+	begin
+		OUT[13:7] = 7'b1111110;
+	end
+	if(IN>=10)
+	begin 
+		OUT[13:7] = 7'b0110000;
+	end
+end
+
+always@(IN)
+begin
+	if(IN>=10)
+		temp = IN-14'b1010;
+	else
+		temp = IN;
+end
+
+always@(temp)
+begin
+	if(temp == 0)
+	begin
+		OUT[6:0] = 7'b1111110;
+	end
+	if(temp == 1)
+	begin
+		OUT[6:0] = 7'b0110000;
+	end
+	if(temp == 2)
+	begin
+		OUT[6:0] = 7'b1101101;
+	end
+	if(temp == 3)
+	begin
+		OUT[6:0] = 7'b1111001;
+	end
+	if(temp == 4)
+	begin
+		OUT[6:0] = 7'b0110011;
+	end
+	if(temp == 5)
+	begin
+		OUT[6:0] = 7'b1011011;
+	end
+	if(temp == 6)
+	begin
+		OUT[6:0] = 7'b1011111;
+	end
+	if(temp == 7)
+	begin
+		OUT[6:0] = 7'b1110000;
+	end
+	if(temp == 8)
+	begin
+		OUT[6:0] = 7'b1111111;
+	end
+	if(temp == 9)
+	begin
+		OUT[6:0] = 7'b1110011;
+	end
+end	
 endmodule
 
 module LightBoard(enable,mode,mode_out,out) ;
@@ -144,9 +214,9 @@ begin
 	begin
 		mode_out = mode ;
 		if(mode==1)
-			out = 5'b00110 ; 
+			out = 5'b00111 ; 
 		else 
-			out = 5'b00111 ;
+			out = 5'b00110 ;
 		# 24 ; 
 		out[3] = 1 ;  // Red Orange LeftGreen FrontGreen RightGreen
 	end
@@ -154,18 +224,22 @@ end
 
 endmodule
 
-module TrafficSignal(clk,outF,outR,outB,outL,imgDataOut,imgData,active,p,e) ;
+module TrafficSignal(clk,outF,outR,outB,outL,imgDataOut,display,imgData,active,p,e) ;
 
 output reg [1023:0] imgDataOut ;
+output [13:0] display ;
 output reg active ;
 input clk ;
 input [1023:0] imgData ;
 input [3:0] p ,e ;
+
+
 wire [1:0] BoardSelect,lo,lout,eo,eout ;
 wire [3:0] o,S,mode_out ;
 output [4:0] outF,outL,outR,outB ;
 wire mode ;
 reg reset ;
+integer ti,tens,ones ;
 
 TimerIC T(clk,reset,mode,BoardSelect) ; 
 
@@ -186,6 +260,17 @@ LightBoard B(S[0],mode,mode_out[0],outB) ; 		// enable , mode , mode_out , out
 LightBoard L(S[1],mode,mode_out[1],outL) ; 
 LightBoard F(S[2],mode,mode_out[2],outF) ; 
 LightBoard R(S[3],mode,mode_out[3],outR) ; 
+
+segment7 disp(display,ti) ;
+
+always@(mode)
+begin
+	if(priority==1 || emergency==1)
+		ti = 0 ;
+	else
+		for(ti=15;ti>0;ti=ti-1)
+			#1 ;
+end
 
 initial
 begin
