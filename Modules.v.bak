@@ -88,10 +88,12 @@ end
 
 endmodule
 
-module TimerIC(clk,mode,BoardSelect) ;
+module TimerIC(clk,reset,mode,BoardSelect) ;
 
-output reg [1:0] mode,BoardSelect ;
+output reg [1:0] BoardSelect ;
+output reg mode ;
 input clk ;
+input reset ;
 reg [5:0] TClock ;
 
 initial 
@@ -102,6 +104,8 @@ end
 
 always @(posedge clk) 
 begin 
+	if(reset)
+		TClock = 0 ;
 	TClock = TClock + 1 ;
 	if(TClock%16==15)
 		mode =~ mode ;
@@ -116,6 +120,8 @@ output reg mode_out ;
 output reg [4:0] out ;
 input enable ;
 input mode ;
+
+reg [4:0] prevout ;
 
 always@(mode) 
 begin
@@ -136,41 +142,60 @@ end
 
 endmodule
 
-module TrafficSignal(clk,imgData,active,imgDataOut) ;
+module TrafficSignal(clk,imgDataOut,imgData,active,p,e) ;
 
+output reg [1023:0] imgDataOut ;
+output reg active ;
 input clk ;
 input [1023:0] imgData ;
-output reg [1023:0] imgDataOut ;
-wire [1:0] mode,BoardSelect,lo,lout,eo,eout ;
+input [3:0] p ,e ;
+wire [1:0] BoardSelect,lo,lout,eo,eout ;
 wire [3:0] o,S,mode_out ;
-wire [4:0] out [1:0] ;
+wire [4:0] out [3:0] ;
+wire mode ;
+wire reset ;
 
-TimerIC T(clk,mode,BoardSelect) ; 
+TimerIC T(clk,reset,mode,BoardSelect) ; 
 
 PEncoder Load(lo,priority,p[0],p[1],p[2],p[3]) ;      // Mux out , in1 , in2 , s
-Mux2x1 L(lout,BoardSelect,lo,priority) ;
+Mux2x1 Lm(lout,BoardSelect,lo,priority) ;
 
 PEncoder Emer(eo,emergency,e[0],e[1],e[2],e[3]) ;     // out , use , in1 , in2 ,in3 , in4  
-Mux2x1 E(eout,lout,eo,emergency) ;
+Mux2x1 Em(eout,lout,eo,emergency) ;
 
-Decoder(o[0],o[1],o[2],o[3],eout) ; 			// out1 , out2 , out3 , out4 , input 
+Decoder D_(o[0],o[1],o[2],o[3],eout) ; 			// out1 , out2 , out3 , out4 , input 
 
-Or(S[0],o[0],mode_out[2]) ;   				// out , in1 , in2 
-Or(S[1],o[1],mode_out[3]) ; 
-Or(S[2],o[2],mode_out[0]) ;
-Or(S[3],o[3],mode_out[1]) ;
+Or o1(S[0],o[0],mode_out[2]) ;   				// out , in1 , in2 
+Or o2(S[1],o[1],mode_out[3]) ; 
+Or o3(S[2],o[2],mode_out[0]) ;
+Or o4(S[3],o[3],mode_out[1]) ;
 
 LightBoard D(S[0],mode,mode_out[0],out[0]) ; 		// enable , mode , mode_out , out 
 LightBoard U(S[1],mode,mode_out[1],out[1]) ; 
 LightBoard L(S[2],mode,mode_out[2],out[2]) ; 
 LightBoard R(S[3],mode,mode_out[3],out[3]) ; 
 
+initial
+begin
+	active = 0 ;
+end
+
+always@(imgData)
+begin
+	imgDataOut = imgData ;
+	active = 1 ; #1 ;
+	active = 0 ; 
+end
+
 endmodule 
 
-module TrafficSystem(clk,imgData,ans) ;
+module TrafficSystem(clk,imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5,signal,ans) ;
 
 input clk ;
-input [1023:0] imgData ;
+input [1023:0] imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5   ;
+input [4:0] signal ;
+output reg [5:0] ans ;
+reg [1023:0] imgData ;
 
 integer Fin ;
 integer Fin_ ;
@@ -179,7 +204,7 @@ integer j ;
 integer max ;
 integer maxi ;
 
-output reg [5:0] ans ;
+reg [4:0] RAM [4:0][1023:0] ;
 
 reg [11:0] similar [260:0] ;
 reg [1023:0] Sample [260:0] ;
@@ -196,6 +221,22 @@ begin
 	begin 
 		Fin_ = $fscanf(Fin,"%b",Sample[i]) ;
 	end
+end
+
+always@(imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5) 
+begin 
+	if(signal==5'b10000)
+	begin
+		imgData = imgDataIn5 ;
+	end
+	if(signal==5'b01000)
+		imgData = imgDataIn4 ;
+	if(signal==5'b00100)
+		imgData = imgDataIn3 ;
+	if(signal==5'b00010)
+		imgData = imgDataIn2 ;
+	if(signal==5'b00001)
+		imgData = imgDataIn1 ;
 end
 
 always@(imgData)
@@ -217,6 +258,11 @@ begin
 			maxi = i ;
 		end
 	ans = maxi/10 + 1 ;
+	RAM[0][ans] = ans ;
+	RAM[1][ans] = ans ;
+	RAM[2][ans] = ans ;
+	RAM[3][ans] = ans ;
+	RAM[4][ans] = ans ;
 end
 
 endmodule 

@@ -3,7 +3,7 @@ import sys
 
 imname = sys.argv[1]
 
-im = Image.open(imname+'.jpg', 'r')
+im = Image.open("Inputs/"+imname+'.jpg', 'r')
 width, height = im.size
 pixel_values = list(im.getdata())
 a = [0 for i in range(1024)]

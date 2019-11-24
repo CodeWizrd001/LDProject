@@ -1,20 +1,25 @@
 module StimTraffic ;
 
-wire [5:0] ans ;
+wire [4:0] ans ;
 reg clk ;
-reg [1023:0] imgData ; 
+reg [1023:0] imgDataMid,imgDataL,imgDataR,imgDataD,imgDataT,imgData  ; 
+wire [1023:0] imgDataOut1,imgDataOut2,imgDataOut3,imgDataOut4,imgDataOut5 ;
+wire [4:0] act ;
+reg [3:0] pMid,eMid,pL,eL,pR,eR,pT,eT,pD,eD ;
 
 integer Fin,Fin_ ;
 
-TrafficSignal Mid(clk,imgDataMid,act[0],imgDataOut) ;
-TrafficSignal L(clk,imgDataL,act[1],imgDataOut) ;
-TrafficSignal R(clk,imgDataR,act[2],imgDataOut) ;
-TrafficSignal T(clk,imgDataT,act[3],imgDataOut) ;
-TrafficSignal D(clk,imgDataD,act[4],imgDataOut) ;
-TrafficSystem Sys() ;
-+
+TrafficSignal Mid(clk,imgDataOut1,imgDataMid,act[0],pMid,eMid) ;
+TrafficSignal L(clk,imgDataOut2,imgDataL,act[1],pL,eL) ;
+TrafficSignal R(clk,imgDataOut3,imgDataR,act[2],pR,eR) ;
+TrafficSignal T(clk,imgDataOut4,imgDataT,act[3],pT,eT) ;
+TrafficSignal D(clk,imgDataOut5,imgDataD,act[4],pD,eD) ;
+TrafficSystem Sys(clk,imgDataOut1,imgDataOut2,imgDataOut3,imgDataOut4,imgDataOut5,act,ans) ;
+
 initial
 begin
+	$system("pip3 install pillow") ;
+	$system("pip install pillow") ;
 	clk = 0 ;
 end 
 
