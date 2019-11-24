@@ -31,6 +31,11 @@ output reg [1:0] out ;
 output reg used ;
 input in1 ,in2 ,in3 ,in4 ;
 
+initial
+begin
+	used = 0 ;
+end
+
 always @(in1,in2,in3,in4)
 begin
 	if({in1,in2,in3,in4} != 0) 
@@ -98,19 +103,23 @@ reg [5:0] TClock ;
 
 initial 
 begin
+	TClock = 0 ;
 	mode = 0 ;
 	BoardSelect = 0 ;
+	BoardSelect = 1 ;
+	BoardSelect = 2 ;
+	BoardSelect = 3 ;
 end
 
 always @(posedge clk) 
 begin 
-	if(reset)
+	if(reset==1)
 		TClock = 0 ;
-	TClock = TClock + 1 ;
-	if(TClock%16==15)
-		mode =~ mode ;
 	if(TClock%32==31)
 		BoardSelect = BoardSelect + 1 ;
+	if(TClock%16==15)
+		mode =~ mode ;
+	TClock = TClock + 1 ;
 end
 endmodule
 
@@ -121,28 +130,31 @@ output reg [4:0] out ;
 input enable ;
 input mode ;
 
-reg [4:0] prevout ;
+initial 
+begin
+	mode_out = 0 ;
+end
 
 always@(mode) 
 begin
-	mode_out = mode ;
-	if(enable == 1 )
-	begin
-		prevout = out ; 
-		if(mode==1)
-			out = 5'b00110 ; 
-		else 
-			out = 5'b00111 ;
-		# 12 ; 
-		out = 5'b01100 ;  // Red Orange LeftGreen FrontGreen RightGreen
-	end
-	else 
+	mode_out = 0 ; 
+	if(enable==0)
 		out = 5'b10100 ;
+	else if(enable == 1 )
+	begin
+		mode_out = mode ;
+		if(mode==1)
+			out = 5'b00111 ; 
+		else 
+			out = 5'b00110 ;
+		# 24 ; 
+		out[3] = 1 ;  // Red Orange LeftGreen FrontGreen RightGreen
+	end
 end
 
 endmodule
 
-module TrafficSignal(clk,imgDataOut,imgData,active,p,e) ;
+module TrafficSignal(clk,outF,outR,outB,outL,imgDataOut,imgData,active,p,e) ;
 
 output reg [1023:0] imgDataOut ;
 output reg active ;
@@ -151,9 +163,9 @@ input [1023:0] imgData ;
 input [3:0] p ,e ;
 wire [1:0] BoardSelect,lo,lout,eo,eout ;
 wire [3:0] o,S,mode_out ;
-wire [4:0] out [3:0] ;
+output [4:0] outF,outL,outR,outB ;
 wire mode ;
-wire reset ;
+reg reset ;
 
 TimerIC T(clk,reset,mode,BoardSelect) ; 
 
@@ -170,13 +182,14 @@ Or o2(S[1],o[1],mode_out[3]) ;
 Or o3(S[2],o[2],mode_out[0]) ;
 Or o4(S[3],o[3],mode_out[1]) ;
 
-LightBoard D(S[0],mode,mode_out[0],out[0]) ; 		// enable , mode , mode_out , out 
-LightBoard U(S[1],mode,mode_out[1],out[1]) ; 
-LightBoard L(S[2],mode,mode_out[2],out[2]) ; 
-LightBoard R(S[3],mode,mode_out[3],out[3]) ; 
+LightBoard B(S[0],mode,mode_out[0],outB) ; 		// enable , mode , mode_out , out 
+LightBoard L(S[1],mode,mode_out[1],outL) ; 
+LightBoard F(S[2],mode,mode_out[2],outF) ; 
+LightBoard R(S[3],mode,mode_out[3],outR) ; 
 
 initial
 begin
+	reset = 0 ;
 	active = 0 ;
 end
 
@@ -195,23 +208,43 @@ input clk ;
 input [1023:0] imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5   ;
 input [4:0] signal ;
 output reg [4:0] ans ;
-reg [1023:0] imgData ;
 
-integer Fin ;
-integer Fin_ ;
+integer mainClock ;
+
 integer i ;
 integer j ;
-integer max ;
-integer maxi ;
-integer board ;
 
+reg [18:0] TimeCrossed [4:0][1023:0] ;
+reg [4:0] Violations [1023:0] ; 
 reg [4:0] RAM [4:0][1023:0] ;
+reg [1023:0] imgData ;
+reg crossed ;
 
-reg [11:0] similar [260:0] ;
+integer ramCounter [4:0] ;
+integer vCounter ;
+integer pTime ;
+integer board ;
+integer diff ;
+integer maxi ;
+integer Fin_ ;
+integer Fin ;
+integer max ;
+
 reg [1023:0] Sample [260:0] ;
+reg [11:0] similar [260:0] ;
+
+always@(posedge clk)
+begin
+	mainClock = mainClock + 1 ;
+end
 
 initial 
 begin 
+	mainClock = 0 ;
+	pTime = 0 ;
+	vCounter = 0 ;
+	for(i=0;i<5;i=i+1)
+		ramCounter[i] = 0 ;
 	Fin = $fopen("Samples/pixelArrayInputFile.txt","r") ;
 	if (Fin==0)
 	begin
@@ -255,6 +288,7 @@ end
 
 always@(imgData)
 begin
+	crossed = 0 ;
 	for(i=0;i<260;i=i+1)
 		similar[i] = 0 ;
 	for(i=0;i<260;i=i+1)
@@ -272,7 +306,31 @@ begin
 			maxi = i ;
 		end
 	ans = maxi/10 + 1 ;
-	RAM[board][0] = ans ;
+	RAM[board][ramCounter[board]] = ans ;
+	TimeCrossed[board][ramCounter[board]] = mainClock ;
+	ramCounter[board] = ramCounter[board]+1 ;
+	for(i=0;i<5;i=i+1)
+		if(i!=board)
+		begin 
+			for(j=0;j<=ramCounter[i];j=j+1)
+			if(ans == RAM[i][j])
+			begin
+				crossed = 1 ;
+				pTime = TimeCrossed[i][j] ;
+				RAM[i][j] = 0 ;
+				ramCounter[board] = ramCounter[board] - 1 ;
+				RAM[board][ramCounter[board]] = 0 ;
+			end
+		end
+	if(crossed==1)
+	begin 
+		diff = mainClock-pTime ;
+		if(diff<50)
+		begin
+			Violations[vCounter] = ans ;
+			vCounter = vCounter + 1 ;
+		end
+	end
 end
 
 endmodule 
