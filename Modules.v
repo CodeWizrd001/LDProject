@@ -1,7 +1,8 @@
 module Mux2x1(out,in1,in2,s) ;
 
-output reg out ;
-input in1,in2,s ;
+output reg [1:0] out ;
+input [1:0] in1,in2 ;
+input s ;
 
 always@(in1,in2,s)
 begin 
@@ -10,7 +11,7 @@ begin
 	else if(s == 1) 
 		out = in2 ;
 	else 
-		out = 1'bx ;
+		out = 2'bxx ;
 end
 
 endmodule 
@@ -24,13 +25,16 @@ or(out,a,b) ;
 
 endmodule 
 
-module PEncoder(out,in1,in2,in3,in4) ;
+module PEncoder(out,used,in1,in2,in3,in4) ;
 
 output reg [1:0] out ;
+output reg used ;
 input in1 ,in2 ,in3 ,in4 ;
 
 always @(in1,in2,in3,in4)
 begin
+	if({in1,in2,in3,in4} != 0) 
+		used = 1 ; 
 	if (in1== 1)
 		out = 0 ;
 	else if(in2 == 1) 
@@ -106,17 +110,61 @@ begin
 end
 endmodule
 
-module LightBoard(enable,mode,mode_out) ;
+module LightBoard(enable,mode,mode_out,out) ;
 
-output reg [1:0] mode_out ;
+output reg mode_out ;
+output reg [4:0] out ;
 input enable ;
-input [1:0] mode ;
+input mode ;
+
+always@(mode) 
+begin
+	mode_out = mode ;
+	if(enable == 1 )
+	begin
+		prevout = out ; 
+		if(mode==1)
+			out = 5'b00110 ; 
+		else 
+			out = 5'b00111 ;
+		# 12 ; 
+		out = 5'b01100 ;  // Red Orange LeftGreen FrontGreen RightGreen
+	end
+	else 
+		out = 5'b10100 ;
+end
 
 endmodule
 
-module TrafficSignal(clk) ;
+module TrafficSignal(clk,imgData,active,imgDataOut) ;
 
 input clk ;
+input [1023:0] imgData ;
+output reg [1023:0] imgDataOut ;
+output reg active ;
+wire [1:0] mode,BoardSelect,lo,lout,eo,eout ;
+wire [3:0] o,S,mode_out ;
+wire [4:0] out [1:0] ;
+
+TimerIC T(clk,mode,BoardSelect) ; 
+
+PEncoder Load(lo,priority,p[0],p[1],p[2],p[3]) ;      // Mux out , in1 , in2 , s
+Mux2x1 L(lout,BoardSelect,lo,priority) ;
+
+PEncoder Emer(eo,emergency,e[0],e[1],e[2],e[3]) ;     // out , use , in1 , in2 ,in3 , in4  
+Mux2x1 E(eout,lout,eo,emergency) ;
+
+Decoder(o[0],o[1],o[2],o[3],eout) ; 			// out1 , out2 , out3 , out4 , input 
+
+Or(S[0],o[0],mode_out[2]) ;   				// out , in1 , in2 
+Or(S[1],o[1],mode_out[3]) ; 
+Or(S[2],o[2],mode_out[0]) ;
+Or(S[3],o[3],mode_out[1]) ;
+
+LightBoard D(S[0],mode,mode_out[0],out[0]) ; 		// enable , mode , mode_out , out 
+LightBoard U(S[1],mode,mode_out[1],out[1]) ; 
+LightBoard L(S[2],mode,mode_out[2],out[2]) ; 
+LightBoard R(S[3],mode,mode_out[3],out[3]) ; 
 
 endmodule 
 
@@ -139,8 +187,6 @@ reg [1023:0] Sample [260:0] ;
 
 initial 
 begin 
-	for(i=0;i<260;i=i+1)
-		similar[i] = 0 ;
 	Fin = $fopen("Samples/pixelArrayInputFile.txt","r") ;
 	if (Fin==0)
 	begin
@@ -155,6 +201,8 @@ end
 
 always@(imgData)
 begin
+	for(i=0;i<260;i=i+1)
+		similar[i] = 0 ;
 	for(i=0;i<260;i=i+1)
 		for(j=0;j<1024;j=j+1)
 		begin
@@ -171,4 +219,5 @@ begin
 		end
 	ans = maxi/10 + 1 ;
 end
+
 endmodule 

@@ -9,13 +9,13 @@ z2
 cModel Technology
 dD:/Files/ModelSim/AJAY_B180341CS_AIV/New folder
 vDecoder
-Z0 !s110 1574513020
+Z0 !s110 1574514920
 !i10b 1
 !s100 9MQ9=hmKk]ZBOb48EiR_A0
 I3X:26McQ4I=Ao`AI1ndWL1
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dD:/Files/ModelSim/Project
-Z3 w1574506266
+Z3 w1574514918
 Z4 8D:/Files/ModelSim/Project/Modules.v
 Z5 FD:/Files/ModelSim/Project/Modules.v
 L0 48
@@ -23,15 +23,15 @@ Z6 OV;L;10.6d;65
 r1
 !s85 0
 31
-Z7 !s108 1574513020.000000
-Z8 !s107 D:/Files/ModelSim/Project/Modules.v|
-Z9 !s90 -reportprogress|300|-work|work|-stats=none|D:/Files/ModelSim/Project/Modules.v|
+Z7 !s108 1574514920.000000
+!s107 D:/Files/ModelSim/Project/Modules.v|
+Z8 !s90 -reportprogress|300|-work|work|-stats=none|D:/Files/ModelSim/Project/Modules.v|
 !i113 1
-Z10 o-work work
-Z11 tCvgOpt 0
+Z9 o-work work
+Z10 tCvgOpt 0
 n@decoder
 velevator
-Z12 !s110 1574265448
+Z11 !s110 1574265448
 !i10b 1
 !s100 N2H[82ohbcP]X5Ebn[@hL3
 IjPYI>acbJ_k@QBnV>@faS2
@@ -45,33 +45,33 @@ R6
 r1
 !s85 0
 31
-Z13 !s108 1574265448.000000
+Z12 !s108 1574265448.000000
 !s107 D:/Files/ModelSim/Project/elevator.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Files/ModelSim/Project/elevator.v|
 !i113 1
+R9
 R10
-R11
 velevator_sim
-R12
+R11
 !i10b 1
 !s100 ;8TnSg6EYD96QCYn42ZD93
 If^I1T<Q]U^h[IknXdjj5S2
 R1
 R2
 w1574265434
-Z14 8D:/Files/ModelSim/Project/Stimulus.v
-Z15 FD:/Files/ModelSim/Project/Stimulus.v
+Z13 8D:/Files/ModelSim/Project/Stimulus.v
+Z14 FD:/Files/ModelSim/Project/Stimulus.v
 L0 1
 R6
 r1
 !s85 0
 31
-R13
-!s107 D:/Files/ModelSim/Project/Stimulus.v|
+R12
+Z15 !s107 D:/Files/ModelSim/Project/Stimulus.v|
 Z16 !s90 -reportprogress|300|-work|work|-stats=none|D:/Files/ModelSim/Project/Stimulus.v|
 !i113 1
+R9
 R10
-R11
 vLightBoard
 R0
 !i10b 1
@@ -88,11 +88,11 @@ r1
 !s85 0
 31
 R7
+Z17 !s107 D:/Files/ModelSim/Project/Modules.v|
 R8
-R9
 !i113 1
+R9
 R10
-R11
 n@light@board
 vMux2x1
 R0
@@ -110,11 +110,11 @@ r1
 !s85 0
 31
 R7
+R17
 R8
-R9
 !i113 1
+R9
 R10
-R11
 n@mux2x1
 vOr
 R0
@@ -132,11 +132,11 @@ r1
 !s85 0
 31
 R7
+R17
 R8
-R9
 !i113 1
+R9
 R10
-R11
 n@or
 vPEncoder
 R0
@@ -154,33 +154,33 @@ r1
 !s85 0
 31
 R7
+R17
 R8
-R9
 !i113 1
+R9
 R10
-R11
 n@p@encoder
 vStimTraffic
-!s110 1574513361
+!s110 1574514686
 !i10b 1
-!s100 VR330BNmV?[ANFU0;Pe=f2
-IFKHMm:55>SLL8Bm8PJ3d`0
+!s100 M7]VT6W`edI62eYE4@@BN1
+IU^@kM?J0>Oj><7X^7K1J60
 R1
 R2
-w1574513357
+w1574514683
+R13
 R14
-R15
 L0 1
 R6
 r1
 !s85 0
 31
-!s108 1574513361.000000
-Z17 !s107 D:/Files/ModelSim/Project/Stimulus.v|
+!s108 1574514686.000000
+R15
 R16
 !i113 1
+R9
 R10
-R11
 n@stim@traffic
 vTimerIC
 R0
@@ -198,11 +198,11 @@ r1
 !s85 0
 31
 R7
+R17
 R8
-R9
 !i113 1
+R9
 R10
-R11
 n@timer@i@c
 vTrafficSignal
 R0
@@ -220,17 +220,17 @@ r1
 !s85 0
 31
 R7
+R17
 R8
-R9
 !i113 1
+R9
 R10
-R11
 n@traffic@signal
 vTrafficSystem
 R0
 !i10b 1
-!s100 GX5@I1<1=cVoQ8^TLo4Tk0
-I_^CAGCim08O0dK^zN7Fa@2
+!s100 T25WTPMG6S;DC;gZI^e5X0
+I5dW<4IAENi`XQkcLkahFk0
 R1
 R2
 R3
@@ -242,9 +242,9 @@ r1
 !s85 0
 31
 R7
+R17
 R8
-R9
 !i113 1
+R9
 R10
-R11
 n@traffic@system

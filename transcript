@@ -7736,3 +7736,136 @@ vsim -gui work.StimTraffic
 # Start time: 18:20:11 on Nov 23,2019
 # Loading work.StimTraffic
 # Loading work.TrafficSystem
+restart -f
+# Compile of Modules.v was successful.
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic
+# End time: 18:34:15 on Nov 23,2019, Elapsed time: 0:14:04
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 18:34:15 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+add wave -position insertpoint sim:/StimTraffic/a/*
+run
+# A_1.jpg
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "A_0.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : D:/Files/ModelSim/Project/Stimulus.v(28)
+#    Time: 20 ps  Iteration: 0  Instance: /StimTraffic
+# ** Error (suppressible): (vsim-PLI-3084) D:/Files/ModelSim/Project/Stimulus.v(29): $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 20 ps  Iteration: 0  Instance: /StimTraffic
+# Compile of Stimulus.v was successful.
+# Load canceled
+vsim -gui work.StimTraffic
+# End time: 18:35:23 on Nov 23,2019, Elapsed time: 0:01:08
+# Errors: 2, Warnings: 1
+# vsim -gui work.StimTraffic 
+# Start time: 18:35:23 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+add wave -position insertpoint sim:/StimTraffic/a/*
+run
+# A_1.jpg
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "A_0.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : D:/Files/ModelSim/Project/Stimulus.v(28)
+#    Time: 20 ps  Iteration: 0  Instance: /StimTraffic
+# ** Error (suppressible): (vsim-PLI-3084) D:/Files/ModelSim/Project/Stimulus.v(29): $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 20 ps  Iteration: 0  Instance: /StimTraffic
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic
+# End time: 18:35:53 on Nov 23,2019, Elapsed time: 0:00:30
+# Errors: 1, Warnings: 1
+# vsim -gui work.StimTraffic 
+# Start time: 18:35:53 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+add wave -position insertpoint sim:/StimTraffic/a/*
+run
+# A_1.jpg
+# Compile of Stimulus.v was successful.
+vsim -gui work.StimTraffic
+# End time: 18:41:33 on Nov 23,2019, Elapsed time: 0:05:40
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 18:41:33 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+add wave -position insertpoint sim:/StimTraffic/a/*
+run
+# A_1.jpg
+# B_1.jpg
+# C_1.jpg
+# D_1.jpg
+# E_1.jpg
+# F_1.jpg
+# G_1.jpg
+# H_1.jpg
+# I_1.jpg
+# J_1.jpg
+# K_1.jpg
+run
+# L_1.jpg
+# M_1.jpg
+# N_1.jpg
+# O_1.jpg
+# P_1.jpg
+# Q_1.jpg
+# R_1.jpg
+# S_1.jpg
+# T_1.jpg
+# U_1.jpg
+run
+# V_1.jpg
+# W_1.jpg
+# X_1.jpg
+# Y_1.jpg
+# Z_1.jpg
+# Compile of Modules.v was successful.
+vsim -gui work.StimTraffic
+# End time: 18:45:30 on Nov 23,2019, Elapsed time: 0:03:57
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 18:45:30 on Nov 23,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+add wave -position insertpoint sim:/StimTraffic/a/*
+run
+# A_1.jpg
+# B_1.jpg
+# C_1.jpg
+# D_1.jpg
+# E_1.jpg
+# F_1.jpg
+# G_1.jpg
+# H_1.jpg
+# I_1.jpg
+# J_1.jpg
+# K_1.jpg
+run
+# L_1.jpg
+# M_1.jpg
+# N_1.jpg
+# O_1.jpg
+# P_1.jpg
+# Q_1.jpg
+# R_1.jpg
+# S_1.jpg
+# T_1.jpg
+# U_1.jpg
+run
+# V_1.jpg
+# W_1.jpg
+# X_1.jpg
+# Y_1.jpg
+# Z_1.jpg
+# End time: 22:20:28 on Nov 23,2019, Elapsed time: 3:34:58
+# Errors: 0, Warnings: 0
