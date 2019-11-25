@@ -122,73 +122,73 @@ begin
 end
 endmodule
 
-module segment7(OUT, IN);
+module Segment7(Out, In);
 
-output reg [13:0] OUT;
-input [3:0] IN;
+output reg [13:0] Out;
+input [3:0] In;
 reg [3:0] temp;
 
-always@(IN)
+always@(In)
 begin
-	if(IN<10)
+	if(In<10)
 	begin
-		OUT[13:7] = 7'b1111110;
+		Out[13:7] = 7'b1111110;
 	end
-	if(IN>=10)
+	if(In>=10)
 	begin 
-		OUT[13:7] = 7'b0110000;
+		Out[13:7] = 7'b0110000;
 	end
 end
 
-always@(IN)
+always@(In)
 begin
-	if(IN>=10)
-		temp = IN-14'b1010;
+	if(In>=10)
+		temp = In-14'b1010;
 	else
-		temp = IN;
+		temp = In;
 end
 
 always@(temp)
 begin
 	if(temp == 0)
 	begin
-		OUT[6:0] = 7'b1111110;
+		Out[6:0] = 7'b1111110;
 	end
 	if(temp == 1)
 	begin
-		OUT[6:0] = 7'b0110000;
+		Out[6:0] = 7'b0110000;
 	end
 	if(temp == 2)
 	begin
-		OUT[6:0] = 7'b1101101;
+		Out[6:0] = 7'b1101101;
 	end
 	if(temp == 3)
 	begin
-		OUT[6:0] = 7'b1111001;
+		Out[6:0] = 7'b1111001;
 	end
 	if(temp == 4)
 	begin
-		OUT[6:0] = 7'b0110011;
+		Out[6:0] = 7'b0110011;
 	end
 	if(temp == 5)
 	begin
-		OUT[6:0] = 7'b1011011;
+		Out[6:0] = 7'b1011011;
 	end
 	if(temp == 6)
 	begin
-		OUT[6:0] = 7'b1011111;
+		Out[6:0] = 7'b1011111;
 	end
 	if(temp == 7)
 	begin
-		OUT[6:0] = 7'b1110000;
+		Out[6:0] = 7'b1110000;
 	end
 	if(temp == 8)
 	begin
-		OUT[6:0] = 7'b1111111;
+		Out[6:0] = 7'b1111111;
 	end
 	if(temp == 9)
 	begin
-		OUT[6:0] = 7'b1110011;
+		Out[6:0] = 7'b1110011;
 	end
 end	
 endmodule
@@ -261,15 +261,20 @@ LightBoard L(S[1],mode,mode_out[1],outL) ;
 LightBoard F(S[2],mode,mode_out[2],outF) ; 
 LightBoard R(S[3],mode,mode_out[3],outR) ; 
 
-segment7 disp(display,ti) ;
+Segment7 disp(display,ti) ;
 
 always@(mode)
 begin
 	if(priority==1 || emergency==1)
+	begin
 		ti = 0 ;
+		reset = 1 ;
 	else
+	begin
+		reset = 0 ;
 		for(ti=15;ti>0;ti=ti-1)
 			#1 ;
+	end
 end
 
 initial

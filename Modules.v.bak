@@ -122,7 +122,7 @@ begin
 end
 endmodule
 
-module segment7(OUT, IN);
+module Segment7(OUT, IN);
 
 output reg [13:0] OUT;
 input [3:0] IN;
@@ -261,15 +261,20 @@ LightBoard L(S[1],mode,mode_out[1],outL) ;
 LightBoard F(S[2],mode,mode_out[2],outF) ; 
 LightBoard R(S[3],mode,mode_out[3],outR) ; 
 
-segment7 disp(display,ti) ;
+Segment7 disp(display,ti) ;
 
 always@(mode)
 begin
 	if(priority==1 || emergency==1)
+	begin
 		ti = 0 ;
+		reset = 1 ;
 	else
+	begin
+		reset = 0 ;
 		for(ti=15;ti>0;ti=ti-1)
 			#1 ;
+	end
 end
 
 initial
@@ -323,7 +328,7 @@ always@(posedge clk)
 begin
 	mainClock = mainClock + 1 ;
 	if(mainClock%86400==0)
-		$fwrite(FDensity,"%d %d %d %d %d",
+		$fwrite(FDensity,"%d %d %d %d %d",Density[0],Density[1],Density[2],Density[3],Density[4]) ;
 end
 
 initial 
