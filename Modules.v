@@ -403,8 +403,6 @@ begin
 				crossed = 1 ;
 				pTime = TimeCrossed[i][j] ;
 				RAM[i][j] = 0 ;
-				ramCounter[board] = ramCounter[board] - 1 ;
-				RAM[board][ramCounter[board]] = 0 ;
 			end
 		end
 	if(crossed==1)
