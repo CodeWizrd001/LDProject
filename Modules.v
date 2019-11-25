@@ -110,7 +110,7 @@ begin
 	BoardSelect = 0 ;
 end
 
-always @(posedge clk) 
+always @(posedge clk,reset) 
 begin 
 	if(reset==1)
 		TClock = 0 ;
@@ -263,17 +263,18 @@ LightBoard R(S[3],mode,mode_out[3],outR) ;
 
 Segment7 disp(display,ti) ;
 
-always@(mode)
+always@(mode,priority,emergency)
 begin
 	if(priority==1 || emergency==1)
 	begin
 		ti = 0 ;
 		reset = 1 ;
+	end
 	else
 	begin
 		reset = 0 ;
 		for(ti=15;ti>0;ti=ti-1)
-			#1 ;
+			#2 ;
 	end
 end
 
@@ -312,6 +313,8 @@ reg crossed ;
 
 integer ramCounter [4:0] ;
 integer Density [4:0] ;
+integer FViolation ;
+integer FDensity ;
 integer vCounter ;
 integer pTime ;
 integer board ;
@@ -434,7 +437,7 @@ begin
 					$fwrite(FViolation,"%b",Violations[i]) ;
 					Violations[i] = 0 ;
 				end 
-\				vCounter = 0 ;
+				vCounter = 0 ;
 			end
 			Violations[vCounter] = ans ;
 			vCounter = vCounter + 1 ;

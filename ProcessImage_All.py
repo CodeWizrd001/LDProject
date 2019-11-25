@@ -22,7 +22,7 @@ for r,d,files in os.walk(p) :
 
 f = open('Inputs.txt',"w")
 for a in inputs :
-    f.write(''.join(str(i) for i in a))
+    f.write(''.join(str(i) for i in a)+"\n")
 f.close()
 
 print('Done Processing')

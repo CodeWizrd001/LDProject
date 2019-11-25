@@ -75,11 +75,11 @@ begin
 	eD = 2 ; #50 ;	
 	pT = 2 ; #50 ;
 	#50 ; 
-	pMid = 0 ;
-	eL = 0 ;
-	pR = 0 ;
-	eD = 0 ;
-	pT = 0 ;
+	pMid = 0 ; #5 ;
+	eL = 0 ; #5 ; 
+	pR = 0 ; #5 ; 
+	eD = 0 ; #5 ; 
+	pT = 0 ; 
 end
 
 endmodule 
