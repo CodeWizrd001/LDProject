@@ -323,7 +323,7 @@ always@(posedge clk)
 begin
 	mainClock = mainClock + 1 ;
 	if(mainClock%86400==0)
-		$fwrite(FDensity,"%d %d %d %d %d",Density[0],Density[1],Density[2],Density[3],Density[4]) ;
+		$fwrite(FDensity,"%d %d %d %d %d",
 end
 
 initial 
