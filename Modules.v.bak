@@ -273,7 +273,7 @@ begin
 	else
 	begin
 		reset = 0 ;
-		for(ti=15;ti>=0;ti=ti-1)
+		for(ti=15;ti>0;ti=ti-1)
 			#2 ;
 	end
 end
