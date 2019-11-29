@@ -226,11 +226,11 @@ endmodule
 
 module TrafficSignal(clk,outF,outR,outB,outL,imgDataOut,display,imgData,active,p,e) ;
 
-output reg [1023:0] imgDataOut ;
+output reg [3071:0] imgDataOut ;
 output [13:0] display ;
 output reg active ;
 input clk ;
-input [1023:0] imgData ;
+input [3071:0] imgData ;
 input [3:0] p ,e ;
 
 
@@ -265,7 +265,7 @@ Segment7 disp(display,ti) ;
 
 always@(mode,priority,emergency)
 begin
-	if(priority==1 || emergency==1)
+	if(priority==1'b1||emergency==1'b1)
 	begin
 		ti = 0 ;
 		reset = 1 ;
@@ -296,9 +296,9 @@ endmodule
 module TrafficSystem(clk,imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5,signal,ans) ;
 
 input clk ;
-input [1023:0] imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5   ;
+input [3071:0] imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5   ;
 input [4:0] signal ;
-output reg [4:0] ans ;
+output reg [14:0] ans ;
 
 integer mainClock ;
 
@@ -306,8 +306,8 @@ integer i ;
 integer j ;
 
 reg [18:0] TimeCrossed [4:0][1023:0] ;
-reg [4:0] Violations [1023:0] ; 
-reg [4:0] RAM [4:0][1023:0] ;
+reg [14:0] Violations [1023:0] ; 
+reg [14:0] RAM [4:0][1023:0] ;
 reg [1023:0] imgData ;
 reg crossed ;
 
@@ -323,6 +323,7 @@ integer maxi ;
 integer Fin_ ;
 integer Fin ;
 integer max ;
+integer p ;
 
 reg [1023:0] Sample [260:0] ;
 reg [11:0] similar [260:0] ;
@@ -341,6 +342,8 @@ begin
 	mainClock = 0 ;
 	pTime = 0 ;
 	vCounter = 0 ;
+	ans = 0 ;
+	p = 0 ;
 	for(i=0;i<5;i=i+1)
 		ramCounter[i] = 0 ;
 	Fin = $fopen("Samples/pixelArrayInputFile.txt","r") ;
@@ -360,27 +363,37 @@ begin
 	if(signal==5'b10000)
 	begin
 		board = 4 ;
-		imgData = imgDataIn5 ;
+		p = 1 ; imgData = imgDataIn5[3071:2048] ; #1 ;
+		p = 2 ; imgData = imgDataIn5[2047:1024] ; #1 ;
+		p = 3 ; imgData = imgDataIn5[1023:0] ;
 	end
 	if(signal==5'b01000)
 	begin
 		board = 3 ;
-		imgData = imgDataIn4 ;
+		p = 1 ; imgData = imgDataIn4[3071:2048] ; #1 ;
+		p = 2 ; imgData = imgDataIn4[2047:1024] ; #1 ;
+		p = 3 ; imgData = imgDataIn4[1023:0] ;
 	end
 	if(signal==5'b00100)
 	begin
 		board = 2 ;
-		imgData = imgDataIn3 ;
+		p = 1 ; imgData = imgDataIn3[3071:2048] ; #1 ;
+		p = 2 ; imgData = imgDataIn3[2047:1024] ; #1 ;
+		p = 3 ; imgData = imgDataIn3[1023:0] ;
 	end
 	if(signal==5'b00010)
 	begin
 		board = 1 ;
-		imgData = imgDataIn2 ;
+		p = 1 ; imgData = imgDataIn2[3071:2048] ; #1 ;
+		p = 2 ; imgData = imgDataIn2[2047:1024] ; #1 ;
+		p = 3 ; imgData = imgDataIn2[1023:0] ;
 	end
 	if(signal==5'b00001)
 	begin
 		board = 0 ;
-		imgData = imgDataIn1 ;
+		p = 1 ; imgData = imgDataIn1[3071:2048] ; #1 ;
+		p = 2 ; imgData = imgDataIn1[2047:1024] ; #1 ;
+		p = 3 ; imgData = imgDataIn1[1023:0] ;
 	end
 end
 
@@ -403,17 +416,25 @@ begin
 			max = similar[i] ;
 			maxi = i ;
 		end
-	ans = maxi/10 + 1 ;
+	if(p==1)
+		ans[4:0] = maxi/10 + 1 ;
+	else if(p==2)
+		ans[9:5] = maxi/10 + 1 ;
+	else if(p==3) 
+		ans[14:10] = maxi/10 + 1 ;
 	if(ramCounter[board]==1023)
 	begin
 		for(i=0;i<1024;i=i+1)
 			RAM[board][i] = 0 ;
 		ramCounter[board] = 0 ;
 	end
-	RAM[board][ramCounter[board]] = ans ;
-	TimeCrossed[board][ramCounter[board]] = mainClock ;
-	ramCounter[board] = ramCounter[board]+1 ;
-	Density[board] = Density[board] + 1;
+	if(p==3)
+	begin
+		RAM[board][ramCounter[board]] = ans ;
+		TimeCrossed[board][ramCounter[board]] = mainClock ;
+		ramCounter[board] = ramCounter[board]+1 ;
+		Density[board] = Density[board] + 1;
+	end
 	for(i=0;i<5;i=i+1)
 		if(i!=board)
 		begin 

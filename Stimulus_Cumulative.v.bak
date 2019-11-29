@@ -31,6 +31,7 @@ begin
 	$display("This Might Take A Few Seconds") ;
 	$display("Simulation Will Start Once This Is Done") ;
 	$system("pip3 install pillow") ;
+	$system("pip install pillow") ;
 	$display("Done")  ;
 	$display("Simulation Will Start Now") ;
 	clk = 0 ;

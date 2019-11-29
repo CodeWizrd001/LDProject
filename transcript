@@ -1,0 +1,557 @@
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 16:06:09 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(24): [PCDPC] - Port size (3072) does not match connection size (1024) for port 'imgDataIn1'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(296).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/Sys File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(24): [PCDPC] - Port size (3072) does not match connection size (1024) for port 'imgDataIn2'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(296).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/Sys File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(24): [PCDPC] - Port size (3072) does not match connection size (1024) for port 'imgDataIn3'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(296).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/Sys File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(24): [PCDPC] - Port size (3072) does not match connection size (1024) for port 'imgDataIn4'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(296).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/Sys File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(24): [PCDPC] - Port size (3072) does not match connection size (1024) for port 'imgDataIn5'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(296).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/Sys File: D:/Files/ModelSim/Project/Modules.v
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 16:06:59 on Nov 29,2019, Elapsed time: 0:00:50
+# Errors: 0, Warnings: 5
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 16:06:59 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(19): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgDataOut'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/Mid File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(19): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgData'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/Mid File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(20): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgDataOut'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/L File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(20): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgData'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/L File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(21): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgDataOut'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/R File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(21): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgData'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/R File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(22): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgDataOut'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/T File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(22): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgData'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/T File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(23): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgDataOut'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/D File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Stimulus_Cumulative.v(23): [PCDPC] - Port size (1024) does not match connection size (3072) for port 'imgData'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(227).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/D File: D:/Files/ModelSim/Project/Modules.v
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 16:08:32 on Nov 29,2019, Elapsed time: 0:01:33
+# Errors: 0, Warnings: 10
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 16:08:32 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# (vsim-50) A call to system(pip install pillow) returned error code '1'.
+# The logfile contains the following messages:
+# Traceback (most recent call last):
+#   File "c:\python27\lib\runpy.py", line 174, in _run_module_as_main
+#     "__main__", fname, loader, pkg_name)
+#   File "c:\python27\lib\runpy.py", line 72, in _run_code
+#     exec code in run_globals
+#   File "C:\Python27\Scripts\pip.exe\__main__.py", line 5, in <module>
+#   File "c:\python27\lib\site-packages\pip\_internal\__init__.py", line 5, in <module>
+#     import logging
+#   File "c:\python27\lib\logging\__init__.py", line 26, in <module>
+#     import sys, os, time, cStringIO, traceback, warnings, weakref, collections
+#   File "c:\python27\lib\weakref.py", line 14, in <module>
+#     from _weakref import (
+# ImportError: cannot import name _remove_dead_weakref
+# 
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v failed with 1 errors.
+# 3 compiles, 1 failed with 1 error.
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 16:23:35 on Nov 29,2019, Elapsed time: 0:15:03
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 16:23:36 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# (vsim-50) A call to system(pip install pillow) returned error code '1'.
+# The logfile contains the following messages:
+# Traceback (most recent call last):
+#   File "c:\python27\lib\runpy.py", line 174, in _run_module_as_main
+#     "__main__", fname, loader, pkg_name)
+#   File "c:\python27\lib\runpy.py", line 72, in _run_code
+#     exec code in run_globals
+#   File "C:\Python27\Scripts\pip.exe\__main__.py", line 5, in <module>
+#   File "c:\python27\lib\site-packages\pip\_internal\__init__.py", line 5, in <module>
+#     import logging
+#   File "c:\python27\lib\logging\__init__.py", line 26, in <module>
+#     import sys, os, time, cStringIO, traceback, warnings, weakref, collections
+#   File "c:\python27\lib\weakref.py", line 14, in <module>
+#     from _weakref import (
+# ImportError: cannot import name _remove_dead_weakref
+# 
+# Done
+# Simulation Will Start Now
+# Done Processing
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 16:24:46 on Nov 29,2019, Elapsed time: 0:01:10
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 16:24:47 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+add wave -position insertpoint sim:/StimTraffic_Cumulative/Mid/*
+run
+restart -f
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart -f
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+add wave -position insertpoint sim:/StimTraffic_Cumulative/Mid/*
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Compile of Modules.v failed with 5 errors.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 1 failed with 5 errors.
+# Compile of Modules.v failed with 7 errors.
+# Compile of Modules.v was successful.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 17:00:01 on Nov 29,2019, Elapsed time: 0:35:14
+# Errors: 10, Warnings: 2
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 17:00:01 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Modules.v(264): [PCDPC] - Port size (4) does not match connection size (32) for port 'In'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(125).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/Mid/disp File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Modules.v(264): [PCDPC] - Port size (4) does not match connection size (32) for port 'In'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(125).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/L/disp File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Modules.v(264): [PCDPC] - Port size (4) does not match connection size (32) for port 'In'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(125).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/R/disp File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Modules.v(264): [PCDPC] - Port size (4) does not match connection size (32) for port 'In'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(125).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/T/disp File: D:/Files/ModelSim/Project/Modules.v
+# ** Warning: (vsim-3015) D:/Files/ModelSim/Project/Modules.v(264): [PCDPC] - Port size (4) does not match connection size (32) for port 'In'. The port definition is at: D:/Files/ModelSim/Project/Modules.v(125).
+#    Time: 0 ps  Iteration: 0  Instance: /StimTraffic_Cumulative/D/disp File: D:/Files/ModelSim/Project/Modules.v
+# Compile of Modules.v was successful.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 17:00:28 on Nov 29,2019, Elapsed time: 0:00:27
+# Errors: 0, Warnings: 5
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 17:00:28 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/Mid/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of Modules.v was successful.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 17:02:00 on Nov 29,2019, Elapsed time: 0:01:32
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 17:02:00 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/Mid/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 17:07:41 on Nov 29,2019, Elapsed time: 0:05:41
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 17:07:41 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run -continue
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+run
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of Modules.v failed with 1 errors.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 1 failed with 1 error.
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 17:23:51 on Nov 29,2019, Elapsed time: 0:16:10
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 17:23:51 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/Mid/*
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 17:25:22 on Nov 29,2019, Elapsed time: 0:01:31
+# Errors: 2, Warnings: 2
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 17:25:22 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 17:27:07 on Nov 29,2019, Elapsed time: 0:01:45
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 17:27:07 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 17:32:05 on Nov 29,2019, Elapsed time: 0:04:58
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 17:32:05 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run

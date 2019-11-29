@@ -12,20 +12,4 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	StimTraffic_Cumulative
 
-} {} {}} D:/Files/ModelSim/Project/Modules.v {1 {vlog -work work -stats=none D:/Files/ModelSim/Project/Modules.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module Mux2x1
--- Compiling module Or
--- Compiling module PEncoder
--- Compiling module Decoder
--- Compiling module TimerIC
--- Compiling module Segment7
--- Compiling module LightBoard
--- Compiling module TrafficSignal
--- Compiling module TrafficSystem
-
-Top level modules:
-	TrafficSignal
-	TrafficSystem
-
 } {} {}}

@@ -27,6 +27,7 @@ initial
 begin
 	pMid=0;eMid=0;pL=0;eL=0;pR=0;eR=0;pT=0;eT=0;pD=0;eD=0;
 	$system("pip3 install pillow") ;
+	$system("pip install pillow") ;
 	clk = 0 ;
 end 
 
