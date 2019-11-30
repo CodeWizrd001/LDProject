@@ -44,9 +44,13 @@ def MatPrint96x32(new) :
             print("")
 
 def MatPrint32x32(new) :
+    flag =0
     for i in range(32*32) :
-        print(new[i],end=" ")
+        if i%2 == 0 and flag%2 == 0 :
+            print(new[i],end=" ")
         if i%32 == 31 :
-            print("")
+            flag += 1
+            if flag%2 :
+                print("")
 
 print('Done Processing')

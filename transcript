@@ -555,3 +555,277 @@ run
 run
 run
 run
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+restart -f
+# Compile of Modules.v failed with 5 errors.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 1 failed with 5 errors.
+# Compile of Modules.v was successful.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 18:44:12 on Nov 29,2019, Elapsed time: 1:12:07
+# Errors: 5, Warnings: 1
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 18:44:12 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+vsim -gui work.StimTraffic_Cumulative
+# End time: 18:44:24 on Nov 29,2019, Elapsed time: 0:00:12
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 18:44:24 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic_Cumulative/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic_Cumulative
+# End time: 18:54:42 on Nov 29,2019, Elapsed time: 0:10:18
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic_Cumulative 
+# Start time: 18:54:42 on Nov 29,2019
+# Loading work.StimTraffic_Cumulative
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic
+# End time: 18:55:31 on Nov 29,2019, Elapsed time: 0:00:49
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 18:55:31 on Nov 29,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of Modules.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic
+# End time: 19:00:28 on Nov 29,2019, Elapsed time: 0:04:57
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 19:00:28 on Nov 29,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of Modules.v failed with 1 errors.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 1 failed with 1 error.
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic
+# End time: 19:42:37 on Nov 29,2019, Elapsed time: 0:42:09
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 19:42:37 on Nov 29,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+add wave -position insertpoint sim:/StimTraffic/Sys/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of Modules.v was successful.
+# Compile of Stimulus.v was successful.
+# Compile of Stimulus_Cumulative.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.StimTraffic
+# End time: 19:45:16 on Nov 29,2019, Elapsed time: 0:02:39
+# Errors: 0, Warnings: 0
+# vsim -gui work.StimTraffic 
+# Start time: 19:45:16 on Nov 29,2019
+# Loading work.StimTraffic
+# Loading work.TrafficSignal
+# Loading work.TimerIC
+# Loading work.PEncoder
+# Loading work.Mux2x1
+# Loading work.Decoder
+# Loading work.Or
+# Loading work.LightBoard
+# Loading work.Segment7
+# Loading work.TrafficSystem
+add wave -position insertpoint sim:/StimTraffic/*
+add wave -position insertpoint sim:/StimTraffic/Sys/*
+run
+# Trying To Install Required Packages
+# These Packages Are Required To Convert Image To Binary
+# This Might Take A Few Seconds
+# Simulation Will Start Once This Is Done
+# Requirement already satisfied: pillow in d:\python\python36\lib\site-packages (5.4.1)
+# Done
+# Simulation Will Start Now
+# Done Processing
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 02:45:02 on Nov 30,2019, Elapsed time: 6:59:46
+# Errors: 0, Warnings: 0

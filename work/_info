@@ -9,21 +9,21 @@ z2
 cModel Technology
 dD:/Files/ModelSim/AJAY_B180341CS_AIV/New folder
 vDecoder
-Z0 !s110 1575028906
+Z0 !s110 1575145846
 !i10b 1
-!s100 VKQNUWIDU?Hm=2bZc8CIm1
-IfoDEG2XXXAD610i=DV@^Q2
+!s100 >;8XkQZlnUTX?58f8CK?R3
+I5jNNkzd@eF1QAZZW]@K<<3
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dD:/Files/ModelSim/Project
-Z3 w1575028895
+Z3 w1575145844
 Z4 8D:/Files/ModelSim/Project/Modules.v
 Z5 FD:/Files/ModelSim/Project/Modules.v
-L0 59
+L0 72
 Z6 OV;L;10.6d;65
 r1
 !s85 0
 31
-Z7 !s108 1575028906.000000
+Z7 !s108 1575145846.000000
 Z8 !s107 D:/Files/ModelSim/Project/Modules.v|
 Z9 !s90 -reportprogress|300|-work|work|-stats=none|D:/Files/ModelSim/Project/Modules.v|
 !i113 1
@@ -75,14 +75,14 @@ R11
 vLightBoard
 R0
 !i10b 1
-!s100 zzWg7CMYjTgVCkO3=maP^0
-I`?]^QmUdZ5klkR;co[i[T3
+!s100 Ica;nF:2fSNVTQHUU8a1^3
+IVHSb^^nlA41Sj9P@5]n[R3
 R1
 R2
 R3
 R4
 R5
-L0 196
+L0 209
 R6
 r1
 !s85 0
@@ -141,8 +141,205 @@ n@or
 vPEncoder
 R0
 !i10b 1
-!s100 RG2SI3_EleEWMfTG=Jh[?0
-In`cz0Oh4dQ>fIL9Ng4LIV3
+!s100 GaNg_Lb8oR?10FX0FZ@RH2
+IB=:TZ=gNE99;@mBRHlT=Z2
+R1
+R2
+R3
+R4
+R5
+L0 41
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@p@encoder
+vSegment7
+R0
+!i10b 1
+!s100 =h7n]g[nS<HzWM>IDM9LA3
+IOb38o;1DeF]jzKiHLWB]g2
+R1
+R2
+R3
+R4
+R5
+L0 138
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@segment7
+vsegment7
+!s110 1574662725
+!i10b 1
+!s100 W5Lj]nJX?]RQc0F`=FHo53
+Ijehe24XVk2IzO6PWaccYK2
+R1
+R2
+w1574622457
+R4
+R5
+L0 125
+R6
+r1
+!s85 0
+31
+!s108 1574662725.000000
+R8
+R9
+!i113 1
+R10
+R11
+vStimTraffic
+R0
+!i10b 1
+!s100 K7Dn^FFjzhQM@lhJC:db11
+IVA9WXR=ek<Rjb@GVeD`UC2
+R1
+R2
+w1575034211
+Z18 8D:/Files/ModelSim/Project/Stimulus_Cumulative.v
+Z19 FD:/Files/ModelSim/Project/Stimulus_Cumulative.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+Z20 !s107 D:/Files/ModelSim/Project/Stimulus_Cumulative.v|
+Z21 !s90 -reportprogress|300|-work|work|-stats=none|D:/Files/ModelSim/Project/Stimulus_Cumulative.v|
+!i113 1
+R10
+R11
+n@stim@traffic
+vStimTraffic_Cumulative
+!s110 1575033873
+!i10b 1
+!s100 aF7cJ509B[@;V>o2XDC]=3
+IVn@m7lZNZFfi_]Ib5JoZS0
+R1
+R2
+w1575033871
+R18
+R19
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1575033873.000000
+R20
+R21
+!i113 1
+R10
+R11
+n@stim@traffic_@cumulative
+vStimTraffic_Old
+R0
+!i10b 1
+!s100 f?Mcma]6o3U6hnZJQjPQf0
+I=n]5knDYWIkR2d:[hgOSb0
+R1
+R2
+w1575033920
+R14
+R15
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R16
+R17
+!i113 1
+R10
+R11
+n@stim@traffic_@old
+vTimerIC
+R0
+!i10b 1
+!s100 GR0j[]h2dZl5[TXCPA^4=3
+I262QE4L<oU1DI[82D:;040
+R1
+R2
+R3
+R4
+R5
+L0 111
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@timer@i@c
+vTrafficSignal
+R0
+!i10b 1
+!s100 NSkIE@E03RobA5cPb9oa72
+InR=1YbiWhAIndE`fZcBc>1
+R1
+R2
+R3
+R4
+R5
+L0 240
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@traffic@signal
+vTrafficSystem
+R0
+!i10b 1
+!s100 >g9dXISih1mlmM1a<[_gM2
+Ihe@0P_@F>mlVz4cP>:U6h0
+R1
+R2
+R3
+R4
+R5
+L0 309
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@traffic@system
+vXor
+R0
+!i10b 1
+!s100 doS<@ZVaPO5mA3D?5VkmN3
+ITdPfLJlj`]GnW2o34Dk7S1
 R1
 R2
 R3
@@ -159,157 +356,4 @@ R9
 !i113 1
 R10
 R11
-n@p@encoder
-vsegment7
-!s110 1574662725
-!i10b 1
-!s100 W5Lj]nJX?]RQc0F`=FHo53
-Ijehe24XVk2IzO6PWaccYK2
-R1
-R2
-w1574622457
-R4
-R5
-Z18 L0 125
-R6
-r1
-!s85 0
-31
-!s108 1574662725.000000
-R8
-R9
-!i113 1
-R10
-R11
-vSegment7
-R0
-!i10b 1
-!s100 ?6?^Ee_QDNQ=ejWN<njZ70
-I92aLGZai@:bP1RCN8a;d?3
-R1
-R2
-R3
-R4
-R5
-R18
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-n@segment7
-vStimTraffic
-Z19 !s110 1575028907
-!i10b 1
-!s100 kOE?:;A[5MN]KDRG4nS@32
-I[f:I>bbz>?<5Xzh4FRCKG1
-R1
-R2
-w1575024868
-R14
-R15
-L0 1
-R6
-r1
-!s85 0
-31
-R7
-R16
-R17
-!i113 1
-R10
-R11
-n@stim@traffic
-vStimTraffic_Cumulative
-R19
-!i10b 1
-!s100 Lz??78DL9Ii8IaGTF5WOD1
-ImFnN3gE_?GRi^m<FFE@;]2
-R1
-R2
-w1575024872
-8D:/Files/ModelSim/Project/Stimulus_Cumulative.v
-FD:/Files/ModelSim/Project/Stimulus_Cumulative.v
-L0 1
-R6
-r1
-!s85 0
-31
-!s108 1575028907.000000
-!s107 D:/Files/ModelSim/Project/Stimulus_Cumulative.v|
-!s90 -reportprogress|300|-work|work|-stats=none|D:/Files/ModelSim/Project/Stimulus_Cumulative.v|
-!i113 1
-R10
-R11
-n@stim@traffic_@cumulative
-vTimerIC
-R0
-!i10b 1
-!s100 3Z0zZEW0h;T3I=dQY[_R41
-I[ZOVn6@;AGk31bhFim68N2
-R1
-R2
-R3
-R4
-R5
-L0 98
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-n@timer@i@c
-vTrafficSignal
-R0
-!i10b 1
-!s100 7:6NVT9hM`a9Jba8Q^lie3
-I_4EQ4DkBX:Rn`3P5:=l0[2
-R1
-R2
-R3
-R4
-R5
-L0 227
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-n@traffic@signal
-vTrafficSystem
-R0
-!i10b 1
-!s100 9PhH2L]^bU^lWhFE7gNGO3
-I7UbC31Ke<HYQe:ZeTi^dQ1
-R1
-R2
-R3
-R4
-R5
-L0 296
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-n@traffic@system
+n@xor

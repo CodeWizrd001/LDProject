@@ -1,15 +1,33 @@
 D:/Files/ModelSim/Project/Stimulus.v {1 {vlog -work work -stats=none D:/Files/ModelSim/Project/Stimulus.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module StimTraffic_Old
+
+Top level modules:
+	StimTraffic_Old
+
+} {} {}} D:/Files/ModelSim/Project/Stimulus_Cumulative.v {1 {vlog -work work -stats=none D:/Files/ModelSim/Project/Stimulus_Cumulative.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
 -- Compiling module StimTraffic
 
 Top level modules:
 	StimTraffic
 
-} {} {}} D:/Files/ModelSim/Project/Stimulus_Cumulative.v {1 {vlog -work work -stats=none D:/Files/ModelSim/Project/Stimulus_Cumulative.v
+} {} {}} D:/Files/ModelSim/Project/Modules.v {1 {vlog -work work -stats=none D:/Files/ModelSim/Project/Modules.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module StimTraffic_Cumulative
+-- Compiling module Mux2x1
+-- Compiling module Or
+-- Compiling module Xor
+-- Compiling module PEncoder
+-- Compiling module Decoder
+-- Compiling module TimerIC
+-- Compiling module Segment7
+-- Compiling module LightBoard
+-- Compiling module TrafficSignal
+-- Compiling module TrafficSystem
 
 Top level modules:
-	StimTraffic_Cumulative
+	Xor
+	TrafficSignal
+	TrafficSystem
 
 } {} {}}

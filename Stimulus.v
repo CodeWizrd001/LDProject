@@ -1,4 +1,4 @@
-module StimTraffic ;
+module StimTraffic_Old ;
 
 wire [4:0] ans ;
 reg clk ;

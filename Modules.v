@@ -25,6 +25,19 @@ or(out,a,b) ;
 
 endmodule 
 
+module Xor(out,a,b) ;
+
+output out ;
+input a,b ;
+wire x,y,z ; 
+
+nand(x,a,b) ;
+nand(y,a,x) ;
+nand(z,b,x) ;
+nand(out,y,z) ;
+
+endmodule 
+
 module PEncoder(out,used,in1,in2,in3,in4) ;
 
 output reg [1:0] out ;
@@ -293,26 +306,30 @@ end
 
 endmodule 
 
-module TrafficSystem(clk,imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5,signal,ans) ;
+module TrafficSystem(clk,imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5,signal,algo,ans) ;
 
 input clk ;
 input [3071:0] imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5   ;
 input [4:0] signal ;
+input [2:0] algo ;
 output reg [14:0] ans ;
 
 integer mainClock ;
 
 integer i ;
 integer j ;
+integer pix ;
 
 reg [18:0] TimeCrossed [4:0][1023:0] ;
 reg [14:0] Violations [1023:0] ; 
 reg [14:0] RAM [4:0][1023:0] ;
 reg [1023:0] imgData ;
+reg [1:0] p ;
 reg crossed ;
 
 integer ramCounter [4:0] ;
 integer Density [4:0] ;
+integer simSI [25:0] ;
 integer FViolation ;
 integer FDensity ;
 integer vCounter ;
@@ -323,10 +340,14 @@ integer maxi ;
 integer Fin_ ;
 integer Fin ;
 integer max ;
-integer p ;
 
+reg [1023:0] similarXor [260:0] ;
+reg [1023:0] SampleSI [25:0] ; 
 reg [1023:0] Sample [260:0] ;
 reg [11:0] similar [260:0] ;
+reg [127:0] sector [3:0] ;
+reg [127:0] sec [3:0] ;
+reg [1023:0] maXor ;
 
 always@(posedge clk)
 begin
@@ -356,6 +377,15 @@ begin
 	begin 
 		Fin_ = $fscanf(Fin,"%b",Sample[i]) ;
 	end
+	for(i=0;i<26;i=i+1)
+		SampleSI[i] = 0 ;
+	for(i=0;i<26;i=i+1)
+		for(j=0;j<10;j=j+1)
+		begin
+			for(pix=0;pix<1024;pix=pix+1)
+				if(Sample[i*10+j][pix]==1)
+					SampleSI[i][pix] = 1 ;
+		end
 end
 
 always@(imgDataIn1 ,imgDataIn2 ,imgDataIn3 ,imgDataIn4 ,imgDataIn5) 
@@ -363,65 +393,217 @@ begin
 	if(signal==5'b10000)
 	begin
 		board = 4 ;
-		p = 1 ; imgData = imgDataIn5[3071:2048] ; #1 ;
-		p = 2 ; imgData = imgDataIn5[2047:1024] ; #1 ;
-		p = 3 ; imgData = imgDataIn5[1023:0] ;
+		#1 ; p = 1 ; imgData = imgDataIn5[3071:2048] ; 
+		#1 ; p = 2 ; imgData = imgDataIn5[2047:1024] ;
+		#1 ; p = 3 ; imgData = imgDataIn5[1023:0] ;
 	end
 	if(signal==5'b01000)
 	begin
 		board = 3 ;
-		p = 1 ; imgData = imgDataIn4[3071:2048] ; #1 ;
-		p = 2 ; imgData = imgDataIn4[2047:1024] ; #1 ;
-		p = 3 ; imgData = imgDataIn4[1023:0] ;
+		#1 ; p = 1 ; imgData = imgDataIn4[3071:2048] ;
+		#1 ; p = 2 ; imgData = imgDataIn4[2047:1024] ; 
+		#1 ; p = 3 ; imgData = imgDataIn4[1023:0] ;
 	end
 	if(signal==5'b00100)
 	begin
 		board = 2 ;
-		p = 1 ; imgData = imgDataIn3[3071:2048] ; #1 ;
-		p = 2 ; imgData = imgDataIn3[2047:1024] ; #1 ;
-		p = 3 ; imgData = imgDataIn3[1023:0] ;
+		#1 ; p = 1 ; imgData = imgDataIn3[3071:2048] ; 
+		#1 ; p = 2 ; imgData = imgDataIn3[2047:1024] ; 
+		#1 ; p = 3 ; imgData = imgDataIn3[1023:0] ;
 	end
 	if(signal==5'b00010)
 	begin
 		board = 1 ;
-		p = 1 ; imgData = imgDataIn2[3071:2048] ; #1 ;
-		p = 2 ; imgData = imgDataIn2[2047:1024] ; #1 ;
-		p = 3 ; imgData = imgDataIn2[1023:0] ;
+		#1 ; p = 1 ; imgData = imgDataIn2[3071:2048] ; 
+		#1 ; p = 2 ; imgData = imgDataIn2[2047:1024] ; 
+		#1 ; p = 3 ; imgData = imgDataIn2[1023:0] ;
 	end
 	if(signal==5'b00001)
 	begin
 		board = 0 ;
-		p = 1 ; imgData = imgDataIn1[3071:2048] ; #1 ;
-		p = 2 ; imgData = imgDataIn1[2047:1024] ; #1 ;
-		p = 3 ; imgData = imgDataIn1[1023:0] ;
+		#1 ; p = 1 ; imgData = imgDataIn1[3071:2048] ; 
+		#1 ; p = 2 ; imgData = imgDataIn1[2047:1024] ; 
+		#1 ; p = 3 ; imgData = imgDataIn1[1023:0] ;
 	end
 end
 
-always@(imgData)
+always@(p)
 begin
 	crossed = 0 ;
 	for(i=0;i<260;i=i+1)
+	begin
 		similar[i] = 0 ;
-	for(i=0;i<260;i=i+1)
-		for(j=0;j<1024;j=j+1)
+		similarXor[i] = 0 ;
+	end
+	case(algo)
+	3'b000 :
 		begin
-			if(Sample[i][j] == imgData[j])
-				similar[i] = similar[i] + 1 ;
+		for(i=0;i<260;i=i+1)
+			for(j=0;j<1024;j=j+1)
+			begin
+				if(Sample[i][j] == imgData[j])
+					similar[i] = similar[i] + 1 ;
+			end
+		max = 0 ;
+		maxi = 0 ;
+		for(i=0;i<260;i=i+1)
+			if(similar[i]>max)
+			begin 
+				max = similar[i] ;
+				maxi = i ;
+			end
+		if(p==1)
+			ans[4:0] = maxi/10 + 1 ;
+		else if(p==2)
+			ans[9:5] = maxi/10 + 1 ;
+		else if(p==3) 
+			ans[14:10] = maxi/10 + 1 ;
 		end
-	max = 0 ;
-	maxi = 0 ;
-	for(i=0;i<260;i=i+1)
-		if(similar[i]>max)
-		begin 
-			max = similar[i] ;
-			maxi = i ;
+	3'b001 :
+		begin
+			sec[0] = 0 ;
+			sec[1] = 0 ; 
+			sec[2] = 0 ;
+			sec[3] = 0 ;
+			sector[3] = imgData[895:768] ;
+			sector[2] = imgData[639:512] ;
+			sector[1] = imgData[381:256] ;
+			sector[0] = imgData[127:0] ;
+			for(i=0;i<260;i=i+1)
+			begin
+				for(j=0;j<128;j=j+1)
+				begin
+					if(Sample[i][j] == sector[0][j])
+						sec[0] = sec[0] + 1 ;
+					if(Sample[i][j+256] == sector[1][j])
+						sec[1] = sec[1] + 1 ;
+					if(Sample[i][j+512] == sector[2][j])
+						sec[2] = sec[2] + 1 ;
+					if(Sample[i][j+768] == sector[3][j])
+						sec[3] = sec[3] + 1 ;
+				end
+				similar[i] = sec[0]+sec[1]+sec[2]+sec[3] ;
+			end
+			max = 0 ;
+			maxi = 0 ;
+			for(i=0;i<260;i=i+1)
+				if(similar[i]>max)
+				begin 
+					max = similar[i] ;
+					maxi = i ;
+				end
+			if(p==1)
+				ans[4:0] = maxi ;
+			else if(p==2)
+				ans[9:5] = maxi ;
+			else if(p==3) 
+				ans[14:10] = maxi ;
 		end
-	if(p==1)
-		ans[4:0] = maxi/10 + 1 ;
-	else if(p==2)
-		ans[9:5] = maxi/10 + 1 ;
-	else if(p==3) 
-		ans[14:10] = maxi/10 + 1 ;
+	3'b010 :
+		begin
+		for(i=0;i<26;i=i+1)
+			for(j=0;j<1024;j=j+1)
+			begin
+				if(SampleSI[i][j] == imgData[j])
+					similar[i] = similar[i] + 1 ;
+			end
+		max = 0 ;
+		maxi = 0 ;
+		for(i=0;i<26;i=i+1)
+			if(similar[i]>max)
+			begin 
+				max = similar[i] ;
+				maxi = i ;
+			end
+		if(p==1)
+			ans[4:0] = maxi ;
+		else if(p==2)
+			ans[9:5] = maxi ;
+		else if(p==3) 
+			ans[14:10] = maxi ;
+		end
+	3'b011 :
+		begin
+			for(i=0;i<260;i=i+1)
+			begin
+				similarXor[i] = imgData^Sample[i] ;
+				similarXor[i] = ~similarXor[i] ;
+			end
+			maXor = 0 ;
+			maxi = 0 ;
+			for(i=0;i<260;i=i+1)
+				if(similar[i]>maXor)
+				begin 
+					maXor = similar[i] ;
+					maxi = i ;
+				end
+			if(p==1)
+				ans[4:0] = maxi/10 + 1 ;
+			else if(p==2)
+				ans[9:5] = maxi/10 + 1 ;
+			else if(p==3) 
+				ans[14:10] = maxi/10 + 1 ;
+		end
+	3'b100 :
+		begin
+			sec[0] = 0 ;
+			sec[1] = 0 ; 
+			sec[2] = 0 ;
+			sec[3] = 0 ;
+			sector[3] = imgData[895:768] ;
+			sector[2] = imgData[639:512] ;
+			sector[1] = imgData[381:256] ;
+			sector[0] = imgData[127:0] ;
+			for(i=0;i<260;i=i+1)
+			begin
+				sec[0] = Sample[i][127:0]^sector[0] ;
+				sec[0] = ~sec[0] ;
+				sec[1] = Sample[i][381:256]^sector[1] ;
+				sec[1] = ~sec[1] ;
+				sec[2] = Sample[i][639:512]^sector[2] ;
+				sec[2] = ~sec[2] ;
+				sec[3] = Sample[i][895:768]^sector[3] ;
+				sec[3] = ~sec[3] ;
+				similar[i] = sec[0]+sec[1]+sec[2]+sec[3] ;
+			end
+			max = 0 ;
+			maxi = 0 ;
+			for(i=0;i<260;i=i+1)
+				if(similar[i]>max)
+				begin 
+					max = similar[i] ;
+					maxi = i ;
+				end
+			if(p==1)
+				ans[4:0] = maxi ;
+			else if(p==2)
+				ans[9:5] = maxi ;
+			else if(p==3) 
+				ans[14:10] = maxi ;
+		end
+	3'b101 :
+		begin
+			for(i=0;i<26;i=i+1)
+			begin
+				similarXor[i] = imgData^SampleSI[i] ;
+				similarXor[i] = ~similarXor[i] ;
+			end
+			maXor = 0 ;
+			maxi = 0 ;
+			for(i=0;i<26;i=i+1)
+				if(similar[i]>maXor)
+				begin 
+					maXor = similar[i] ;
+					maxi = i ;
+				end
+			if(p==1) 
+				ans[4:0] = maxi ;
+			else if(p==2)
+				ans[9:5] = maxi ;
+			else if(p==3) 
+				ans[14:10] = maxi ;
+		end
+	endcase 
 	if(ramCounter[board]==1023)
 	begin
 		for(i=0;i<1024;i=i+1)
@@ -434,36 +616,36 @@ begin
 		TimeCrossed[board][ramCounter[board]] = mainClock ;
 		ramCounter[board] = ramCounter[board]+1 ;
 		Density[board] = Density[board] + 1;
-	end
-	for(i=0;i<5;i=i+1)
-		if(i!=board)
-		begin 
-			for(j=0;j<=ramCounter[i];j=j+1)
-			if(ans == RAM[i][j])
-			begin
-				crossed = 1 ;
-				pTime = TimeCrossed[i][j] ;
-				RAM[i][j] = 0 ;
-			end
-		end
-	if(crossed==1)
-	begin 
-		diff = mainClock-pTime ;
-		if(diff<50)
-		begin
-			if(vCounter==1023)
+		for(i=0;i<5;i=i+1)
+			if(i!=board)
 			begin 
-				for(i=0;i<1024;i=i+1)
+				for(j=0;j<=ramCounter[i];j=j+1)
+				if(ans == RAM[i][j])
 				begin
-					$fwrite(FViolation,"%b",Violations[i]) ;
-					Violations[i] = 0 ;
-				end 
-				vCounter = 0 ;
+					crossed = 1 ;
+					pTime = TimeCrossed[i][j] ;
+					RAM[i][j] = 0 ;
+				end
 			end
-			Violations[vCounter] = ans ;
-			vCounter = vCounter + 1 ;
+		if(crossed==1)
+		begin 
+			diff = mainClock-pTime ;
+			if(diff<50)
+			begin
+				if(vCounter==1023)
+				begin 
+					for(i=0;i<1024;i=i+1)
+					begin
+						$fwrite(FViolation,"%b",Violations[i]) ;
+						Violations[i] = 0 ;
+					end 
+					vCounter = 0 ;
+				end
+				Violations[vCounter] = ans ;
+				vCounter = vCounter + 1 ;
+			end
 		end
-	end
+	end 
 end
 
 endmodule 
