@@ -427,6 +427,13 @@ begin
 	end
 end
 
+// Changes Made After Evaluation
+
+// Added 5 More Recognition Algorithms 
+// Cases 1-5 are the said Algorithms
+// They can be selected as per user need 
+// using select line algo 
+
 always@(p)
 begin
 	crossed = 0 ;
