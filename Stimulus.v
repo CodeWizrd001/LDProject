@@ -1,10 +1,12 @@
-module StimTraffic_Old ;
+module StimTraffic ;
 
-wire [4:0] ans ;
+wire [14:0] ans ;
 reg clk ;
 reg [3071:0] imgDataMid,imgDataL,imgDataR,imgDataD,imgDataT  ; 
 wire [3071:0] imgDataOut1,imgDataOut2,imgDataOut3,imgDataOut4,imgDataOut5 ;
 wire [4:0] act ;
+reg [2:0] algo ;
+
 reg [3:0] pMid,eMid,pL,eL,pR,eR,pT,eT,pD,eD ;
 wire [13:0] d1,d2,d3,d4,d5 ;
 
@@ -21,12 +23,19 @@ TrafficSignal L(clk,outLF,outLR,outLB,outLL,imgDataOut2,d2,imgDataL,act[1],pL,eL
 TrafficSignal R(clk,outRF,outRR,outRB,outRL,imgDataOut3,d3,imgDataR,act[2],pR,eR) ;
 TrafficSignal T(clk,outTF,outTR,outTB,outTL,imgDataOut4,d4,imgDataT,act[3],pT,eT) ;
 TrafficSignal D(clk,outDF,outDR,outDB,outDL,imgDataOut5,d5,imgDataD,act[4],pD,eD) ;
-TrafficSystem Sys(clk,imgDataOut1,imgDataOut2,imgDataOut3,imgDataOut4,imgDataOut5,act,ans) ;
+TrafficSystem Sys(clk,imgDataOut1,imgDataOut2,imgDataOut3,imgDataOut4,imgDataOut5,act,algo,ans) ;
 
 initial
 begin
+	algo = 0 ;
 	pMid=0;eMid=0;pL=0;eL=0;pR=0;eR=0;pT=0;eT=0;pD=0;eD=0;
+	$display("Trying To Install Required Packages") ;
+	$display("These Packages Are Required To Convert Image To Binary") ;
+	$display("This Might Take A Few Seconds") ;
+	$display("Simulation Will Start Once This Is Done") ;
 	$system("pip3 install pillow") ;
+	$display("Done")  ;
+	$display("Simulation Will Start Now") ;
 	clk = 0 ;
 end 
 
@@ -38,101 +47,52 @@ end
 initial
 begin
 	#30 ;
-        $system("python3 ProcessImage.py A_1") ; #5 ;
-	Fin = $fopen("A_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #5 ;
-	$system("python3 ProcessImage.py B_1") ; #5 ;
-	Fin = $fopen("B_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 ;
-	$system("python3 ProcessImage.py C_1") ; #5 ;
-	Fin = $fopen("C_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #5 ;
-	$system("python3 ProcessImage.py D_1") ; #5 ;
-	Fin = $fopen("D_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #5 ;
-	$system("python3 ProcessImage.py A_1") ; #5 ;
-	Fin = $fopen("A_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 ;
-	$system("python3 ProcessImage.py E_1") ; #5 ;
-	Fin = $fopen("E_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 ;
-	$system("python3 ProcessImage.py F_1") ; #5 ;
-	Fin = $fopen("F_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #5 ;
-	$system("python3 ProcessImage.py G_1") ; #5 ;
-	Fin = $fopen("G_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #5 ;
-	$system("python3 ProcessImage.py H_1") ; #5 ;
-	Fin = $fopen("H_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 ;
-	$system("python3 ProcessImage.py I_1") ; #5 ;
-	Fin = $fopen("I_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataT) ; #5 ;
-	$system("python3 ProcessImage.py J_1") ; #5 ;
-	Fin = $fopen("J_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #5 ;
-	$system("python3 ProcessImage.py K_1") ; #5 ;
-	Fin = $fopen("K_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #5 ;
-	$system("python3 ProcessImage.py L_1") ; #5 ;
-	Fin = $fopen("L_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #5 ;
-	$system("python3 ProcessImage.py M_1") ; #5 ;
-	Fin = $fopen("M_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 ;
-	$system("python3 ProcessImage.py N_1") ; #5 ;
-	Fin = $fopen("N_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #5 ;
-	$system("python3 ProcessImage.py O_1") ; #5 ;
-	Fin = $fopen("O_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 ;
-	$system("python3 ProcessImage.py P_1") ; #5 ;
-	Fin = $fopen("P_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #5 ;
-	$system("python3 ProcessImage.py N_1") ; #5 ;
-	Fin = $fopen("N_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 
-	$system("python3 ProcessImage.py Q_1") ; #5 ;
-	Fin = $fopen("Q_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #5 ;
-	$system("python3 ProcessImage.py R_1") ; #5 ;
-	Fin = $fopen("R_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 ;
-	$system("python3 ProcessImage.py S_1") ; #5 ;
-	Fin = $fopen("S_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #5 ;
-	$system("python3 ProcessImage.py T_1") ; #5 ;
-	Fin = $fopen("T_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #5 ;
-	$system("python3 ProcessImage.py U_1") ; #5 ;
-	Fin = $fopen("U_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataT) ; #5 ;
-	$system("python3 ProcessImage.py V_1") ; #5 ;
-	Fin = $fopen("V_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #5 ;
-	$system("python3 ProcessImage.py W_1") ; #5 ;
-	Fin = $fopen("W_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 ;
-	$system("python3 ProcessImage.py X_1") ; #5 ;
-	Fin = $fopen("X_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #5 ;
-	$system("python3 ProcessImage.py Y_1") ; #5 ;
-	Fin = $fopen("Y_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #5 ;
-	$system("python3 ProcessImage.py Z_1") ; #5 ;
-	Fin = $fopen("Z_1.txt","r") ;
-	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #5 ;
+        $system("python3 ProcessImage_All.py") ; #10 ;
+	Fin = $fopen("Inputs.txt","r") ;
+	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	algo = 1 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataT) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #10 ;
+	algo = 2 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #10 ;
+	algo = 3 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataMid) ; #10 ;
+	algo = 4 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataT) ; #10 ;
+	algo = 5 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataD) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataL) ; #10 ;
+	Fin_ = $fscanf(Fin,"%b",imgDataR) ; #10 ;
 	pMid = 4 ; #50 ;
 	eL = 8 ; #50 ; 
 	pR = 1 ; #50 ;
 	eD = 2 ; #50 ;	
 	pT = 2 ; #50 ;
 	#50 ; 
-	pMid = 0 ;
-	eL = 0 ;
-	pR = 0 ;
-	eD = 0 ;
-	pT = 0 ;
+	pMid = 0 ; #5 ;
+	eL = 0 ; #5 ; 
+	pR = 0 ; #5 ; 
+	eD = 0 ; #5 ; 
+	pT = 0 ; 
 end
 
 endmodule 
